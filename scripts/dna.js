@@ -171,16 +171,16 @@ function buildDnas(encoded) {
     sections[10] = encodeDecToLetter(2);
     sections[11] = encodeDecToLetter(3);    // 0-8
 
-    sections[16] = encodeDecToLetter(0);    // Hue
-    sections[17] = encodeDecToLetter(0);    //
-    sections[18] = encodeDecToLetter(0);    //
-    sections[19] = encodeDecToLetter(0);    //
+    sections[16] = encodeDecToLetter(3);    // Hue
+    sections[17] = encodeDecToLetter(3);    //
+    sections[18] = encodeDecToLetter(3);    //
+    sections[19] = encodeDecToLetter(3);    //
 
 
     sections[24] = encodeDecToLetter(0);  // Torso = 7
     sections[25] = encodeDecToLetter(0);    // 0-8
     sections[26] = encodeDecToLetter(2);  // Torso = 7
-    sections[27] = encodeDecToLetter(3);    // 0-8
+    sections[27] = encodeDecToLetter(2);    // 0-8
 
 
     sections[34] = encodeDecToLetter(1);    // Head 0-11
@@ -250,6 +250,8 @@ console.log("3 && 2", 1 && 2)
 console.log("SEND", '{"type":"WS_UPDATE_USER","avatar":"'+buildDnas(encoded)+'", "area": "1"}');
 console.log("RECEIVE", '{"type":"WS_USERS","users":{"7652":{"gdprDocId":"1171","email":"nico@nmac.com.ar","username":"netspanker","avatar":"'+buildDnas(encoded)+'","country":"AR"}},"initialLogin":true}')
 
+
+// {"type":"DENNIS_NEDRY","scope":"app","target":"app","messages":["Your information has been updated!"]}
 
 console.log(buildDnas(encoded));
 // console.log(decode(buildDnas(encoded)));
