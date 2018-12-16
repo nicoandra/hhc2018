@@ -161,18 +161,25 @@ function buildDnas(encoded) {
 
     }, []);
 
-    sections[2] = encodeDecToLetter(0);     // Maybe here
-    sections[3] = encodeDecToLetter(3);     // Size = 3
+    sections[1] = encodeDecToLetter(1);     // Maybe here
 
-    sections[10] = encodeDecToLetter(2);    // Legs = 9
-    sections[11] = encodeDecToLetter(1);    // 0-8
+    sections[2] = encodeDecToLetter(0);     // Maybe here
+    sections[3] = encodeDecToLetter(0);     // Size? = 3
+
+    sections[8] = encodeDecToLetter(0);    // Legs = 9 , 10, 11 to try
+    sections[9] = encodeDecToLetter(0);
+    sections[10] = encodeDecToLetter(2);
+    sections[11] = encodeDecToLetter(3);    // 0-8
 
     sections[16] = encodeDecToLetter(0);    // Hue
     sections[17] = encodeDecToLetter(0);    //
     sections[18] = encodeDecToLetter(0);    //
-    sections[19] = encodeDecToLetter(1);    //
+    sections[19] = encodeDecToLetter(0);    //
 
-    sections[26] = encodeDecToLetter(1);  // Torso = 7
+
+    sections[24] = encodeDecToLetter(0);  // Torso = 7
+    sections[25] = encodeDecToLetter(0);    // 0-8
+    sections[26] = encodeDecToLetter(2);  // Torso = 7
     sections[27] = encodeDecToLetter(3);    // 0-8
 
 
@@ -185,6 +192,12 @@ function buildDnas(encoded) {
 
     sections[54] = encodeDecToLetter(1);    // Eyes 0-11
     sections[55] = encodeDecToLetter(0);    // 4
+
+    sections[58] = encodeDecToLetter(0);    // Brightness
+    sections[59] = encodeDecToLetter(0);    // 4
+
+
+
 
     // console.log(sections);
     return sections.join("","");
@@ -234,7 +247,7 @@ console.log("1 && 2", 1 && 2)
 console.log("2 && 2", 2 && 2)
 console.log("3 && 2", 1 && 2)
 
-console.log("SEND", '{"type":"WS_UPDATE_USER","avatar":"'+buildDnas(encoded)+'"}');
+console.log("SEND", '{"type":"WS_UPDATE_USER","avatar":"'+buildDnas(encoded)+'", "area": "1"}');
 console.log("RECEIVE", '{"type":"WS_USERS","users":{"7652":{"gdprDocId":"1171","email":"nico@nmac.com.ar","username":"netspanker","avatar":"'+buildDnas(encoded)+'","country":"AR"}},"initialLogin":true}')
 
 

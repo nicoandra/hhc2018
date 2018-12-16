@@ -1,0 +1,1 @@
+* Torso and Legs have 3 extra images, all blank
