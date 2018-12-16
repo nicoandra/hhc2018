@@ -5,6 +5,9 @@ Notes on the holiday hack challenge.
 # SPOILERS AHEAD
 If you don't want the spoilers, please STOP READING now.
 
+# Dependencies:
+- Nodejs
+
 # Gates
 Things I've figured out:
 - There's a DNA
