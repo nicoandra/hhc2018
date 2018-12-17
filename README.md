@@ -47,3 +47,24 @@ The interface lets you pick a number between 0 and 8, being these:
 - 8: GC AT
 
 All these are using 4 characters, but we've seen above we can use up to 8; which means that GC AT AT AT would still be a valid "torso".
+
+
+
+The DNA needs to contain the numbers mapped only. So AT, TA, CG, GC. There's a DNA listed [here](https://www.ncbi.nlm.nih.gov/Class/MLACourse/Modules/BLAST/q_jurassicparkDNA.html) which won't work because it contains other symbols, like TT.
+
+The decoding function reads as follows:
+`decodeDNASequence: e => b.unpack((e.match(/..?/g) || []).map(e => h[e]).join(""), 4),`
+
+
+Deobfuscated would be:
+
+`decodeDNASequence: (e) => {
+
+  const parts = (e.match(/..?/g) || []); // Maps becomes an array like [ ['AT'], ['AT'], ['TA'] ... ], 60 pairs of characters.
+  const numbers = parts.map((pair) => { return h[pair]; }); // H is the list of mappings, see above. Now numbers became a list like [[0], [0], [1], ... ]
+  const stringOfNumbers = numbers.join(""); // Glue them all together
+  return b.unpack(stringOfNumbers, 4);  //
+}
+`
+
+It will get groups of 2 characters, then pass them through map in order to get an array of decoded values
