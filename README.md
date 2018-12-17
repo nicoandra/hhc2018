@@ -5,15 +5,26 @@ Notes on the holiday hack challenge.
 # SPOILERS AHEAD
 If you don't want the spoilers, please STOP READING now.
 
+# Contact and contribution
+- Clone, make a PR, good to go.
+- Contact me at @imsonico over Twitter ;
+
 # Dependencies:
 - Nodejs
+
+# Basic setup you need
+- Burp or ZAP Proxy; I use Burp. Any proxy which lets you manipulate WebSockets will do.
+- Chromium browser configured to use your proxy as listed in the previous point.
+- The Proxy SSL certificate installed in Chromium.
+
+
+- Why Chromium? Because the Javascript debugger actually works and you'll need to debug Javascript code.
 
 # Gates
 Things I've figured out:
 - There's a DNA
 - It can be manipulated by playing with WebSockets
 - You can send a forged DNA, but still need to update the response from the server for the missingno. image to appear.
-
 
 The Main.js file contains this snippet:
 
@@ -36,5 +47,3 @@ The interface lets you pick a number between 0 and 8, being these:
 - 8: GC AT
 
 All these are using 4 characters, but we've seen above we can use up to 8; which means that GC AT AT AT would still be a valid "torso".
-
-Need to bring my GF to a place, I'll continue this later!

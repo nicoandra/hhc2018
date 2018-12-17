@@ -161,7 +161,7 @@ function buildDnas(encoded) {
 
     }, []);
 
-    sections[1] = encodeDecToLetter(1);     // Maybe here
+    sections[1] = encodeDecToLetter(0);     // Maybe here
 
     sections[2] = encodeDecToLetter(0);     // Maybe here
     sections[3] = encodeDecToLetter(0);     // Size? = 3
@@ -169,7 +169,7 @@ function buildDnas(encoded) {
     sections[8] = encodeDecToLetter(0);    // Legs = 9 , 10, 11 to try
     sections[9] = encodeDecToLetter(0);
     sections[10] = encodeDecToLetter(2);
-    sections[11] = encodeDecToLetter(3);    // 0-8
+    sections[11] = encodeDecToLetter(0);    // 0-8
 
     sections[16] = encodeDecToLetter(3);    // Hue
     sections[17] = encodeDecToLetter(3);    //
@@ -180,7 +180,7 @@ function buildDnas(encoded) {
     sections[24] = encodeDecToLetter(0);  // Torso = 7
     sections[25] = encodeDecToLetter(0);    // 0-8
     sections[26] = encodeDecToLetter(2);  // Torso = 7
-    sections[27] = encodeDecToLetter(2);    // 0-8
+    sections[27] = encodeDecToLetter(0);    // 0-8
 
 
     sections[34] = encodeDecToLetter(1);    // Head 0-11
@@ -196,13 +196,39 @@ function buildDnas(encoded) {
     sections[58] = encodeDecToLetter(0);    // Brightness
     sections[59] = encodeDecToLetter(0);    // 4
 
-
-
-
     // console.log(sections);
     return sections.join("","");
-
 }
+
+
+function buildMissingNoDnaLegs9() {
+  const dna = Array(60).fill(encodeDecToLetter(0));
+
+  dna[2] = encodeDecToLetter(2);  // Sixze equal to leg number
+  dna[3] = encodeDecToLetter(1);
+
+  dna[54] = encodeDecToLetter(3);    // Eyes 0-11
+  dna[55] = encodeDecToLetter(0);    // 12
+
+  dna[34] = encodeDecToLetter(3);    // Head 0-11
+  dna[35] = encodeDecToLetter(0);    // = 4
+
+  dna[8] = encodeDecToLetter(0);
+  dna[9] = encodeDecToLetter(0);
+
+  dna[10] = encodeDecToLetter(2); // legs 0-8 = 9
+  dna[11] = encodeDecToLetter(1);
+
+  dna[46] = encodeDecToLetter(3);    // Mouth 0-11
+  dna[47] = encodeDecToLetter(0);    // 12
+
+  dna[26] = encodeDecToLetter(2);  // Torso = 7
+  dna[27] = encodeDecToLetter(1);    // 0-8
+
+  return dna.join("","");
+}
+
+
 
 function validateSequence(e) {
     if (!e){
@@ -243,16 +269,21 @@ function validateSequence(e) {
 
 
 
-console.log("1 && 2", 1 && 2)
-console.log("2 && 2", 2 && 2)
-console.log("3 && 2", 1 && 2)
-
 console.log("SEND", '{"type":"WS_UPDATE_USER","avatar":"'+buildDnas(encoded)+'", "area": "1"}');
 console.log("RECEIVE", '{"type":"WS_USERS","users":{"7652":{"gdprDocId":"1171","email":"nico@nmac.com.ar","username":"netspanker","avatar":"'+buildDnas(encoded)+'","country":"AR"}},"initialLogin":true}')
 
 
+
+console.log(buildMissingNoDnaLegs9());
+
+
+// All zero + legs 9 = MISSINGNO.
+
+// 001 + Legs 9 + 0 0 0 1 = MISSINGNO
+// 01 + Legs 9 + 0 0 0 1
+
 // {"type":"DENNIS_NEDRY","scope":"app","target":"app","messages":["Your information has been updated!"]}
 
-console.log(buildDnas(encoded));
+// console.log(buildDnas(encoded));
 // console.log(decode(buildDnas(encoded)));
 // console.log(decode(encoded));
