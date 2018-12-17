@@ -231,7 +231,7 @@ Deobfuscated:
      }
      
     unpack(e, t = 16) {
-        /* t = 4 as it's passed in the call above */
+        /* t = 4 as it's passed in the call above. It will always be 4 */
         
         if ("string" != typeof e) return {
             error: "invalid format"
@@ -248,15 +248,36 @@ Deobfuscated:
         
         return c.reduce(
         
-            (a, {
-                name: o,
-                size: i = 8
-            }) => {
+            (a, { name: o, size: i = 8 }) => {
             
-                const section = e.slice(n, n + r(16 * i / 4 / t));
-                const s = parseInt(section, t);
+                /*
+                o is one of eyes, mouth, head, etc... (name from below)
+                i is the size from below
+                                   
+                var c = [
+                { name: "size", size: 4 },
+                { name: "legs", size: 8 }, 
+                { name: "hue", size: 8 }, 
+                { name: "torso", size: 8 },
+                { name: "head", size: 8}, 
+                { name: "saturation",size: 4 }, 
+                { name: "mouth", size: 8 }, 
+                { name: "eyes", size: 8 }, 
+                { name: "brightness", size: 4 }];
+
+                */
+            
+                const sectionLength =  r(16 * i / 4 / t); // this will be equal to i, so size as listed above.
+                   
+                const section = e.slice(n, n + sectionLength);  // Get i characters, starting from n
                 
-                n += r(16 * i / 4 / t)
+                const s = parseInt(section, t); // Convert the strings from base-4 to base-10
+                
+                // n += r(16 * i / 4 / t); // Reworked below to be readable.
+                n = n + sectionLength;  // Move n to be i positions higher, to read the next number in the chain
+                
+                // Add the property to the a object, and return the object to be used in the next iteration
+                // so it contains a list of properties.
                 
                 return Object.assign({}, a, {
                     [o]: s  
