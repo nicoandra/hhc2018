@@ -201,33 +201,98 @@ function buildDnas(encoded) {
 }
 
 
-function buildMissingNoDnaLegs9() {
+function buildMissingNoDna(legs, torso) {
   const dna = Array(60).fill(encodeDecToLetter(0));
 
-  dna[2] = encodeDecToLetter(2);  // Sixze equal to leg number
-  dna[3] = encodeDecToLetter(1);
 
-  dna[54] = encodeDecToLetter(3);    // Eyes 0-11
-  dna[55] = encodeDecToLetter(0);    // 12
+  dna[0] = encodeDecToLetter(3);  // Size equal to leg number
+  dna[1] = encodeDecToLetter(3);
+  dna[2] = encodeDecToLetter(3);
+  dna[3] = encodeDecToLetter(3);
 
+  dna[8] = encodeDecToLetter(3);
+  dna[9] = encodeDecToLetter(3);
+  dna[10] = encodeDecToLetter(3); // legs 0-8 = 9
+  dna[11] = encodeDecToLetter(3);
+
+  dna[16] = encodeDecToLetter(3);    // Hue
+  dna[17] = encodeDecToLetter(3);    //
+  dna[18] = encodeDecToLetter(3);    //
+  dna[19] = encodeDecToLetter(3);    //
+
+  dna[24] = encodeDecToLetter(3);  // Torso = 7
+  dna[25] = encodeDecToLetter(3);    // 0-8
+  dna[26] = encodeDecToLetter(3);  // Torso = 7
+  dna[27] = encodeDecToLetter(3);    // 0-8
+
+  dna[32] = encodeDecToLetter(3);    // Head 0-11
+  dna[33] = encodeDecToLetter(3);    // Head 0-11
   dna[34] = encodeDecToLetter(3);    // Head 0-11
-  dna[35] = encodeDecToLetter(0);    // = 4
+  dna[35] = encodeDecToLetter(3);    // = 4
 
-  dna[8] = encodeDecToLetter(0);
-  dna[9] = encodeDecToLetter(0);
 
-  dna[10] = encodeDecToLetter(2); // legs 0-8 = 9
-  dna[11] = encodeDecToLetter(1);
+  dna[32] = encodeDecToLetter(3);    // Head 0-11
+  dna[33] = encodeDecToLetter(3);    // Head 0-11
+  dna[34] = encodeDecToLetter(3);    // Head 0-11
+  dna[35] = encodeDecToLetter(3);    // = 4
 
+
+  dna[38] = encodeDecToLetter(3);    // Saturation
+  dna[39] = encodeDecToLetter(3);    // = 4
+
+  dna[44] = encodeDecToLetter(3);    // Mouth 0-11
+  dna[45] = encodeDecToLetter(3);    // 12
   dna[46] = encodeDecToLetter(3);    // Mouth 0-11
-  dna[47] = encodeDecToLetter(0);    // 12
+  dna[47] = encodeDecToLetter(3);    // 12
 
-  dna[26] = encodeDecToLetter(2);  // Torso = 7
-  dna[27] = encodeDecToLetter(1);    // 0-8
+  dna[52] = encodeDecToLetter(3);    // Eyes 0-11
+  dna[53] = encodeDecToLetter(3);    // Eyes 0-11
+  dna[54] = encodeDecToLetter(3);    // Eyes 0-11
+  dna[55] = encodeDecToLetter(3);    // 12
+
+
+  dna[58] = encodeDecToLetter(3);    // Brightness
+  dna[59] = encodeDecToLetter(3);    // 4
 
   return dna.join("","");
 }
 
+
+function overflow() {
+  const dna = Array(60).fill(encodeDecToLetter(3));
+
+/*  dna[0] = encodeDecToLetter(3);  // Valid DNA
+  dna[1] = encodeDecToLetter(3);  // Valid DNA
+  dna[2] = encodeDecToLetter(3);  // Valid DNA
+  dna[3] = encodeDecToLetter(3);  // Valid DNA
+
+
+  dna[4] = encodeDecToLetter(3);
+  dna[5] = encodeDecToLetter(3);
+  dna[6] = encodeDecToLetter(3); // legs 0-8 = 9
+  dna[7] = encodeDecToLetter(3);
+  dna[8] = encodeDecToLetter(3);
+  dna[9] = encodeDecToLetter(3);
+  dna[10] = encodeDecToLetter(3); // legs 0-8 = 9
+  dna[11] = encodeDecToLetter(3);
+
+  dna[15] = encodeDecToLetter(1);
+
+  dna[23] = encodeDecToLetter(1);    //
+
+  dna[31] = encodeDecToLetter(1);    // 0-8
+
+  dna[37] = encodeDecToLetter(3);    // Saturation
+
+  dna[43] = encodeDecToLetter(3);    // Mouth 0-11
+
+  dna[51] = encodeDecToLetter(3);    // Eyes 0-11
+
+  dna[57] = encodeDecToLetter(3);    // Brightness*/
+
+
+  return dna.join("","");
+}
 
 
 function validateSequence(e) {
@@ -274,7 +339,7 @@ console.log("RECEIVE", '{"type":"WS_USERS","users":{"7652":{"gdprDocId":"1171","
 
 
 
-console.log(buildMissingNoDnaLegs9());
+console.log(overflow());
 
 
 // All zero + legs 9 = MISSINGNO.

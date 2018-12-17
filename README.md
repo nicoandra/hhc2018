@@ -50,13 +50,13 @@ All these are using 4 characters, but we've seen above we can use up to 8; which
 
 
 
-The DNA needs to contain the numbers mapped only. So AT, TA, CG, GC. There's a DNA listed [here](https://www.ncbi.nlm.nih.gov/Class/MLACourse/Modules/BLAST/q_jurassicparkDNA.html) which won't work because it contains other symbols, like TT.
+The DNA needs to contain the numbers mapped only. So AT, TA, CG, GC. There's a DNA listed [here](https://www.ncbi.nlm.nih.gov/Class/MLACourse/Modules/BLAST/q_jurassicparkDNA.html) which won't work because it contains non-accepted symbols, like TT.
 
 The decoding function reads as follows:
 `decodeDNASequence: e => b.unpack((e.match(/..?/g) || []).map(e => h[e]).join(""), 4),`
 
 
-Deobfuscated would be:
+Deobfuscated would be (not tested):
 
 `decodeDNASequence: (e) => {
 
@@ -67,4 +67,13 @@ Deobfuscated would be:
 }
 `
 
-It will get groups of 2 characters, then pass them through map in order to get an array of decoded values
+
+See [legs](assets/images/avatars/legs_full_boards.png?raw=true) and [torso](assets/images/avatars/torso_full_boards.png?raw=true) images. Both images include 3 additional transparent sections. It seems the options:
+
+legs: 9, 10 11
+torso: 9, 10, 11
+
+Appear in the image, but are not available in the interface. The allowed values in the interface are 0 to 8.
+
+
+Possible options would be:
