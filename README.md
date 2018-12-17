@@ -81,3 +81,93 @@ Appear in the image, but are not available in the interface. The allowed values 
 * Interesting files
 - There's a badge.png in images
 - Currently working on a deobfuscated version of main.js ; which I'm using in Chrome to test. Some variables (like the socket) are exposed to the global scope, being available to play with straight from the Chrome console.
+
+# DNA Validation
+
+I've deobfuscated the validateSequence function. Original:
+```
+validateSequence(e) {
+    if (!e)
+        return g;
+    if ("" == `${e}`)
+        return g;
+    if (!/((?:AT|TA|GC|CG){60})/i.test(e))
+        return g;
+    const t = b.getSize();
+    if (e.length / 8 !== t)
+        return g;
+    const n = b.decodeDNASequence(e);
+    return !!Object(i.filter)(n, (e,t)=>{
+        if ("size" === t)
+            return 0 > e || e >= d.length;
+        if (Object(i.includes)(Object.keys(A), t))
+            return 0 > e || e >= A[t].count;
+        const n = Object(i.find)(c, {
+            name: t
+        });
+        return !!n && (0 > e || e > parseInt(Array(n.size + 1).join("1"), 2).toString(10))
+    }
+    ).length && x
+},
+```
+
+Deobfuscated:
+```
+    validateSequence : (e) => {
+
+        console.log("validateSequence : ", { g , x, e })
+
+        if (!e){ return g; }
+        if ("" == `${e}`){ return g; }
+        if (!/((?:AT|TA|GC|CG){60})/i.test(e)){ return g; }
+
+        const t = 15;  // b.getSize();  // t will always be 15, getSize is the SUM of all fields
+
+        if (e.length / 8 !== 15){ return g; }   // The DNA must be 120 characters, not more not less
+
+        const n = b.decodeDNASequence(e);
+
+        const callback = (e,t)=>{
+            // t is the field name (size, legs, eyes, etc)
+            // e is the actual decimal value (0,1,2,...512?)
+
+            if ("size" === t){
+                if(0 > e){ return true; } // Size can not be less than 0
+                if(e >= d.length){ return true; } // Size must be less than 2; d.length = 2
+                return false;
+            }
+
+            // if (Object(i.includes)(Object.keys(A), t)) // this if is reworked below
+            const validProperties = Object.keys(A);
+
+            if (validProperties.includes(t)){
+                if(0 > e){ return true; }           // e needs to be 0 or greater
+                if(e >= A[t].count){ return true; } // e needs to be less than the count of options for that item (eyes, mouth, etc)
+                return false;
+            }
+
+
+            const n = Object(i.find)(c, {
+                name: t
+            });
+
+            const condA = 0 > e;
+
+            let compar = Array(n.size + 1).join("1");
+            compar = parseInt(compar, 2).toString(10);
+            // For n.size = 4   => compar = 11111       =>
+            // For n.size = 8   => compar = 111111111   =>
+
+            const condB = e > compar;
+
+            return !!n && (condA || condB);
+        }
+
+        const howManyValidFields = Object(i.filter)(n, callback).length;
+
+        const toReturn = !!howManyValidFields && x
+        return toReturn;
+
+    }
+```
+
