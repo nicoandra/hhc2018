@@ -109,6 +109,30 @@ validateSequence(e) {
     }
     ).length && x
 },
+
+
+ decodeDNASequence: e=>b.unpack( (e.match(/..?/g) || []) .map(e=>h[e]).join(""), 4)
+ 
+
+ unpack : (e, t = 16) {
+     if ("string" != typeof e) return {
+         error: "invalid format"
+     };
+     if (e.length < b.getSize()) return {
+         error: "invalid input length"
+     };
+     let n = 0;
+     return c.reduce((a, {
+         name: o,
+         size: i = 8
+     }) => {
+         const s = parseInt(e.slice(n, n + r(16 * i / 4 / t)), t);
+         return n += r(16 * i / 4 / t), Object.assign({}, a, {
+             [o]: s
+         })
+     }, {})
+ },
+
 ```
 
 Deobfuscated:
@@ -142,6 +166,17 @@ Deobfuscated:
 
             if (validProperties.includes(t)){
                 if(0 > e){ return true; }           // e needs to be 0 or greater
+            
+                /* Counts are:
+                    A = {
+                        legs: { count: 9 },
+                        torso: { count: 9 },
+                        head: { count: 12 },
+                        mouth: { count: 12 },
+                        eyes: { count: 12 }
+                    }
+                 */
+                
                 if(e >= A[t].count){ return true; } // e needs to be less than the count of options for that item (eyes, mouth, etc)
                 return false;
             }
@@ -168,6 +203,67 @@ Deobfuscated:
         const toReturn = !!howManyValidFields && x
         return toReturn;
 
-    }
+    },
+    
+     decodeDNASequence: (e) => {
+     
+        /* h is the mapping from letters to numbers :
+
+        h = {   AT: "0",
+                TA: "1",
+                GC: "2",
+                CG: "3" }         
+        */
+        
+        const pairsOfLetters = e.match(/..?/g); // Now pairsOfLetters = [[AT], [AT], [TA], ... ]
+        const dnaAsArray = pairsOfLetters || [];
+        
+        const callback = (e) => {
+            if (e == 'AT') return 0;
+            if (e == 'TA') return 1;
+            if (e == 'GC') return 2;
+            if (e == 'CG') return 3;
+        }
+          
+        let toUnpack = dnaAsArray.map(callback);   // toUnpack is now [ 0, 0, 0 , 1, ... ]
+        toUnpack = toUnpack.join(""); // toUnpack is a list of numbers
+        return b.unpack(toUnpack , 4)
+     }
+     
+    unpack(e, t = 16) {
+        /* t = 4 as it's passed in the call above */
+        
+        if ("string" != typeof e) return {
+            error: "invalid format"
+        };
+        
+        const minSize = b.getSize(); // It is 15
+        if (e.length < minSize) return {     
+            error: "invalid input length"
+        };
+        
+        let n = 0;
+        
+        let initialObject = {};
+        
+        return c.reduce(
+        
+            (a, {
+                name: o,
+                size: i = 8
+            }) => {
+            
+                const section = e.slice(n, n + r(16 * i / 4 / t));
+                const s = parseInt(section, t);
+                
+                n += r(16 * i / 4 / t)
+                
+                return Object.assign({}, a, {
+                    [o]: s  
+                })
+        }, initialObject)
+    },     
+     
+
 ```
 
