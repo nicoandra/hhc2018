@@ -76,4 +76,8 @@ torso: 9, 10, 11
 Appear in the image, but are not available in the interface. The allowed values in the interface are 0 to 8.
 
 
-Possible options would be:
+
+
+* Interesting files
+- There's a badge.png in images
+- Currently working on a deobfuscated version of main.js ; which I'm using in Chrome to test. Some variables (like the socket) are exposed to the global scope, being available to play with straight from the Chrome console.

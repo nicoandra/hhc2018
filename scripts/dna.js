@@ -204,7 +204,6 @@ function buildDnas(encoded) {
 function buildMissingNoDna(legs, torso) {
   const dna = Array(60).fill(encodeDecToLetter(0));
 
-
   dna[0] = encodeDecToLetter(3);  // Size equal to leg number
   dna[1] = encodeDecToLetter(3);
   dna[2] = encodeDecToLetter(3);
@@ -253,13 +252,23 @@ function buildMissingNoDna(legs, torso) {
 
   dna[58] = encodeDecToLetter(3);    // Brightness
   dna[59] = encodeDecToLetter(3);    // 4
+  dna[60] = encodeDecToLetter(3);    // Brightness
+  dna[61] = encodeDecToLetter(3);
+  dna[62] = encodeDecToLetter(3);
+  dna[63] = encodeDecToLetter(3);
+
 
   return dna.join("","");
 }
 
 
+
 function overflow() {
-  const dna = Array(60).fill(encodeDecToLetter(3));
+  const dna = Array(64).fill(encodeDecToLetter(3));
+  dna[0] = encodeDecToLetter(0);
+  dna[1] = encodeDecToLetter(1);
+  dna[2] = encodeDecToLetter(0);
+  dna[3] = encodeDecToLetter(0);  //
 
 /*  dna[0] = encodeDecToLetter(3);  // Valid DNA
   dna[1] = encodeDecToLetter(3);  // Valid DNA
@@ -290,6 +299,49 @@ function overflow() {
 
   dna[57] = encodeDecToLetter(3);    // Brightness*/
 
+
+  return dna.join("","");
+}
+
+
+
+function vuln() {
+  const dna = Array(64).fill(encodeDecToLetter(0));
+
+
+  dna[1] = encodeDecToLetter(1);
+
+  dna[6] = encodeDecToLetter(3); // legs 0-8 = 9
+  dna[7] = encodeDecToLetter(1);
+
+
+  dna[10] = encodeDecToLetter(3); // legs 0-8 = 9
+  dna[11] = encodeDecToLetter(1);
+
+
+  dna[18] = encodeDecToLetter(3);    //
+  dna[19] = encodeDecToLetter(1);    //
+
+
+  dna[26] = encodeDecToLetter(3);  // Torso = 7
+  dna[27] = encodeDecToLetter(0);    // 0-8
+
+  dna[34] = encodeDecToLetter(3);    // Head 0-11
+  dna[35] = encodeDecToLetter(1);    // = 4
+
+
+  dna[38] = encodeDecToLetter(3);    // Saturation
+  dna[39] = encodeDecToLetter(3);    // = 4
+
+  dna[46] = encodeDecToLetter(3);    // Mouth 0-11
+  dna[47] = encodeDecToLetter(1);    // 12
+
+  dna[54] = encodeDecToLetter(3);    // Eyes 0-11
+  dna[55] = encodeDecToLetter(1);    // 12
+
+
+  dna[58] = encodeDecToLetter(3);    // Brightness
+  dna[59] = encodeDecToLetter(1);    // 4
 
   return dna.join("","");
 }

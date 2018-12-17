@@ -5828,26 +5828,40 @@ function(e, t, n) {
 
             const n = b.decodeDNASequence(e);
 
-            let toReturn = !!Object(i.filter)(n, (e,t)=>{
-
+            const callback = (e,t)=>{
                 if ("size" === t){
-                    const tt =  0 > e || e >= d.length;
-                    return tt;
+                    if(0 > e){ return true; }
+                    if(e >= d.length){ return true; }
+                    return false;
                 }
 
                 if (Object(i.includes)(Object.keys(A), t)){
-                    const tt = 0 > e || e >= A[t].count;
-                    return tt;
+                    if(0 > e){ return true; }
+                    if(e >= A[t].count){ return true; }
+                    return false;
                 }
 
                 const n = Object(i.find)(c, {
                     name: t
                 });
 
-                return !!n && (0 > e || e > parseInt(Array(n.size + 1).join("1"), 2).toString(10))
-            }
-            ).length && x
+                const condA = 0 > e;
 
+                let compar = Array(n.size + 1).join("1");
+                compar = parseInt(compar, 2).toString(10);
+                // For size = 0  => compar = 1      => 1
+                // For size = 1  => compar = 11     => 3
+                // For size = 2  => compar = 111    => 7
+                // For size = 3  => compar = 1111   => 15
+
+                const condB = e > compar;
+
+                return !!n && (condA || condB);
+            }
+
+            const howManyValidFields = Object(i.filter)(n, callback).length;
+
+            const toReturn = !!howManyValidFields && x
             return toReturn;
 
 
@@ -48868,9 +48882,7 @@ object-assign
     var Zn = n(56);
     const zn = "DENNIS_NEDRY"
       , Xn = ({scope: e, target: t, messages: n})=>({
-        type: zn,
-        scope: e,
-        target: t,
+        type: zn, scope: e, target: t,
         messages: Object(Zn.isArray)(n) ? n : [n]
     })
       , jn = "MAGIC_WORD";
@@ -49765,16 +49777,33 @@ object-assign
             }
         },
         feedback: function(e=Po, t) {
+
             const {type: n, scope: r="global", target: a="default", targets: o=[], messages: i=[]} = t;
-            return n === zn ? Object.assign({}, e, {
-                [r]: Object.assign({}, e[r], {
-                    [a]: i
-                })
-            }) : n === Ke.b ? Object.assign({}, e, {
-                form: {}
-            }) : n === jn ? Object.assign({}, e, {
+
+            console.log("Feedback function called. Breakpoint here.");
+
+            if (n === zn) {
+              const toReturn = Object.assign({}, e, {
+                  [r]: Object.assign({}, e[r], {
+                      [a]: i
+                  })
+              });
+              return toReturn;
+            }
+
+            if (n === Ke.b) {
+              const toReturn = Object.assign({}, e, {
+                  form: {}
+              });
+              return toReturn;
+            }
+
+
+
+            return n === jn ? Object.assign({}, e, {
                 [r]: Object(Zn.omit)(o)(Object.assign({}, e[r]))
             }) : Object.assign({}, e)
+
         },
         users: function(e=Xo, t) {
             switch (t.type) {
