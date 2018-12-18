@@ -53,19 +53,22 @@ All these are using 4 characters, but we've seen above we can use up to 8; which
 The DNA needs to contain the numbers mapped only. So AT, TA, CG, GC. There's a DNA listed [here](https://www.ncbi.nlm.nih.gov/Class/MLACourse/Modules/BLAST/q_jurassicparkDNA.html) which won't work because it contains non-accepted symbols, like TT.
 
 The decoding function reads as follows:
-`decodeDNASequence: e => b.unpack((e.match(/..?/g) || []).map(e => h[e]).join(""), 4),`
+```javascript
+decodeDNASequence: e => b.unpack((e.match(/..?/g) || []).map(e => h[e]).join(""), 4),
+```
 
 
 Deobfuscated would be (not tested):
 
-`decodeDNASequence: (e) => {
+```javascript
+decodeDNASequence: (e) => {
 
   const parts = (e.match(/..?/g) || []); // Maps becomes an array like [ ['AT'], ['AT'], ['TA'] ... ], 60 pairs of characters.
   const numbers = parts.map((pair) => { return h[pair]; }); // H is the list of mappings, see above. Now numbers became a list like [[0], [0], [1], ... ]
   const stringOfNumbers = numbers.join(""); // Glue them all together
   return b.unpack(stringOfNumbers, 4);  //
 }
-`
+```
 
 
 See [legs](assets/images/avatars/legs_full_boards.png?raw=true) and [torso](assets/images/avatars/torso_full_boards.png?raw=true) images. Both images include 3 additional transparent sections. It seems the options:
@@ -84,8 +87,8 @@ Appear in the image, but are not available in the interface. The allowed values 
 
 # DNA Validation
 
-I've deobfuscated the validateSequence function. Original:
-```
+Here are a few deobfuscated functions. Original snippets:
+```javascript
 validateSequence(e) {
     if (!e)
         return g;
@@ -110,10 +113,10 @@ validateSequence(e) {
     ).length && x
 },
 
-
+// [...]
  decodeDNASequence: e=>b.unpack( (e.match(/..?/g) || []) .map(e=>h[e]).join(""), 4)
- 
 
+// [...]
  unpack : (e, t = 16) {
      if ("string" != typeof e) return {
          error: "invalid format"
@@ -135,8 +138,9 @@ validateSequence(e) {
 
 ```
 
-Deobfuscated:
-```
+And here they are deobfuscated:
+
+```javascript
     validateSequence : (e) => {
 
         console.log("validateSequence : ", { g , x, e })
@@ -161,13 +165,13 @@ Deobfuscated:
                 return false;
             }
 
-            // if (Object(i.includes)(Object.keys(A), t)) // this if is reworked below
+            // if (Object(i.includes)(Object.keys(A), t)) // the if condition is reworked below
             const validProperties = Object.keys(A);
 
             if (validProperties.includes(t)){
                 if(0 > e){ return true; }           // e needs to be 0 or greater
-            
-                /* Counts are:
+
+                /* Counts are (kinda, look in main.js for exact code):
                     A = {
                         legs: { count: 9 },
                         torso: { count: 9 },
@@ -176,7 +180,7 @@ Deobfuscated:
                         eyes: { count: 12 }
                     }
                  */
-                
+
                 if(e >= A[t].count){ return true; } // e needs to be less than the count of options for that item (eyes, mouth, etc)
                 return false;
             }
@@ -186,12 +190,13 @@ Deobfuscated:
                 name: t
             });
 
-            const condA = 0 > e;
+            const condA = 0 > e;  // e needs to be positive
 
-            let compar = Array(n.size + 1).join("1");
+            let compar = Array(n.size + 1).join("1"); //
             compar = parseInt(compar, 2).toString(10);
-            // For n.size = 4   => compar = 11111       =>
-            // For n.size = 8   => compar = 111111111   =>
+            // For n.size = 4   => compar =     11111 => 31 => what if we send 32 ?
+            // For n.size = 8   => compar = 111111111 => 511 => what if we send 512 ?
+            // Response: it is validated
 
             const condB = e > compar;
 
@@ -204,9 +209,9 @@ Deobfuscated:
         return toReturn;
 
     },
-    
+
      decodeDNASequence: (e) => {
-     
+
         /* h is the mapping from letters to numbers :
 
         h = {   AT: "0",
@@ -214,77 +219,77 @@ Deobfuscated:
                 GC: "2",
                 CG: "3" }         
         */
-        
+
         const pairsOfLetters = e.match(/..?/g); // Now pairsOfLetters = [[AT], [AT], [TA], ... ]
         const dnaAsArray = pairsOfLetters || [];
-        
+
         const callback = (e) => {
             if (e == 'AT') return 0;
             if (e == 'TA') return 1;
             if (e == 'GC') return 2;
             if (e == 'CG') return 3;
         }
-          
+
         let toUnpack = dnaAsArray.map(callback);   // toUnpack is now [ 0, 0, 0 , 1, ... ]
         toUnpack = toUnpack.join(""); // toUnpack is a list of numbers
         return b.unpack(toUnpack , 4)
      }
-     
+
     unpack(e, t = 16) {
         /* t = 4 as it's passed in the call above. It will always be 4 */
-        
+
         if ("string" != typeof e) return {
             error: "invalid format"
         };
-        
+
         const minSize = b.getSize(); // It is 15
         if (e.length < minSize) return {     
             error: "invalid input length"
         };
-        
+
         let n = 0;
-        
+
         let initialObject = {};
-        
+
         return c.reduce(
-        
+
             (a, { name: o, size: i = 8 }) => {
-            
+
                 /*
                 o is one of eyes, mouth, head, etc... (name from below)
                 i is the size from below
-                                   
+
                 var c = [
                 { name: "size", size: 4 },
-                { name: "legs", size: 8 }, 
-                { name: "hue", size: 8 }, 
+                { name: "legs", size: 8 },
+                { name: "hue", size: 8 },
                 { name: "torso", size: 8 },
-                { name: "head", size: 8}, 
-                { name: "saturation",size: 4 }, 
-                { name: "mouth", size: 8 }, 
-                { name: "eyes", size: 8 }, 
+                { name: "head", size: 8},
+                { name: "saturation",size: 4 },
+                { name: "mouth", size: 8 },
+                { name: "eyes", size: 8 },
                 { name: "brightness", size: 4 }];
 
                 */
-            
+
                 const sectionLength =  r(16 * i / 4 / t); // this will be equal to i, so size as listed above.
-                   
+                //  But still did not check for occurrences of unpack() with a different 2nd parameter (!= 4)
+
                 const section = e.slice(n, n + sectionLength);  // Get i characters, starting from n
-                
+
                 const s = parseInt(section, t); // Convert the strings from base-4 to base-10
-                
+
                 // n += r(16 * i / 4 / t); // Reworked below to be readable.
                 n = n + sectionLength;  // Move n to be i positions higher, to read the next number in the chain
-                
+
                 // Add the property to the a object, and return the object to be used in the next iteration
                 // so it contains a list of properties.
-                
+
                 return Object.assign({}, a, {
                     [o]: s  
                 })
         }, initialObject)
     },     
-     
+
 
 ```
-
