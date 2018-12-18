@@ -10,15 +10,22 @@ If you don't want the spoilers, please STOP READING now.
 - Contact me at @imsonico over Twitter ;
 
 # Dependencies:
-- Nodejs
+- Nodejs: for CLI scripts to build DNAs
+
+# DOM and sockets
+This custom version of main.js contains a few upgrades.
+- You can `console.log(functions)` and see the list of functions; so you can navegate it to find what they do.
+- The WebSocket is exposed to the global scope. You can add event listeners, send messages, anything you can do with a socket.
 
 # Basic setup you need
 - Burp or ZAP Proxy; I use Burp. Any proxy which lets you manipulate WebSockets will do.
 - Chromium browser configured to use your proxy as listed in the previous point.
 - The Proxy SSL certificate installed in Chromium.
+- Investigate how to use Sources Overrides in Chrome/Chromium
+- Use `assets/kringlecon.com/main.js%3f9c4bcb0809532cd03df9` to override `main.js`
 
 
-- Why Chromium? Because the Javascript debugger actually works and you'll need to debug Javascript code.
+- Why Chromium? Because the Javascript debugger actually works and you'll need to debug Javascript code. Use the debugger!
 
 # Gates
 Things I've figured out:
@@ -35,7 +42,8 @@ However the size specified in the JS says 8 letters. But each number is encoded 
 
 ![Number mapping](docs/main002.png?raw=true "Data mapping")
 
-The interface lets you pick a number between 0 and 8, being these:
+The interface lets you pick a number between 0 and 8:
+```
 - 0: AT AT
 - 1: AT TA
 - 2: AT GC
@@ -45,18 +53,18 @@ The interface lets you pick a number between 0 and 8, being these:
 - 6: TA GC
 - 7: TA CG
 - 8: GC AT
+```
 
-All these are using 4 characters, but we've seen above we can use up to 8; which means that GC AT AT AT would still be a valid "torso".
+All these are using 4 characters, but we've seen above we can use up to 8; which means that `TA AT AT AT` (thus 64) would still be a valid "torso".
 
 
 
-The DNA needs to contain the numbers mapped only. So AT, TA, CG, GC. There's a DNA listed [here](https://www.ncbi.nlm.nih.gov/Class/MLACourse/Modules/BLAST/q_jurassicparkDNA.html) which won't work because it contains non-accepted symbols, like TT.
+The DNA needs to contain the mapped numbers only. So AT, TA, CG, GC. There's a DNA listed [here](https://www.ncbi.nlm.nih.gov/Class/MLACourse/Modules/BLAST/q_jurassicparkDNA.html) which won't work because it contains non-accepted symbols, like TT.
 
 The decoding function reads as follows:
 ```javascript
 decodeDNASequence: e => b.unpack((e.match(/..?/g) || []).map(e => h[e]).join(""), 4),
 ```
-
 
 Deobfuscated would be (not tested):
 
@@ -70,7 +78,6 @@ decodeDNASequence: (e) => {
 }
 ```
 
-
 See [legs](assets/images/avatars/legs_full_boards.png?raw=true) and [torso](assets/images/avatars/torso_full_boards.png?raw=true) images. Both images include 3 additional transparent sections. It seems the options:
 
 legs: 9, 10 11
@@ -82,12 +89,13 @@ Appear in the image, but are not available in the interface. The allowed values 
 
 
 * Interesting files
-- There's a badge.png in images
-- Currently working on a deobfuscated version of main.js ; which I'm using in Chrome to test. Some variables (like the socket) are exposed to the global scope, being available to play with straight from the Chrome console.
+- There's a badge.png in images: https://kringlecon.com/images/badge.png
+
 
 # DNA Validation
 
 Here are a few deobfuscated functions. Original snippets:
+
 ```javascript
 validateSequence(e) {
     if (!e)
@@ -291,5 +299,40 @@ And here they are deobfuscated:
         }, initialObject)
     },     
 
+```
+
+
+# Additional interesting Things
+```javascript
+isValidElement: c,
+version: "16.5.0",
+__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: {
+    ReactCurrentOwner: M,
+    assign: g
+}
+
+
+
+url: !0,
+week: !0
+}
+, ta = ar.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED  // And this?
+, na = /^(.*)[\\\/]/
+, ra = "function" == typeof Symbol && Symbol.for
+
+
+__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: {
+    Events: [h, g, x, mr, w, function(e) {
+        c(e, C)
+    }
+    , O, P, Te, A]
+},
+
+
+, function(e) {
+    "use strict";
+    // This is the function in index 80th
+    e.exports = "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED"
+}
 
 ```
