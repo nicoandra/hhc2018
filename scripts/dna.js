@@ -36,7 +36,6 @@ function decode(encoded) {
             case 'CG':
                 return 3;
         }
-
     }
 
     let decimals = {}
@@ -124,6 +123,61 @@ function generateAllZero(){
 
 
 
+
+function humanize(encoded){
+    const chars = encoded.split("");
+
+    const sections = chars.reduce((accumulator, thisChar, index) => {
+
+        const sectionNumber = Math.floor(index / 2);
+
+        if (!accumulator[sectionNumber]) {
+            accumulator[sectionNumber] = '';
+        }
+
+        if (accumulator[sectionNumber].length < 2) {
+            accumulator[sectionNumber] += thisChar;
+        }
+
+        return accumulator
+
+    }, []);
+
+    function getBase4Digit(chars) {
+        switch (chars) {
+            case 'AT':
+                return 0;
+            case 'TA':
+                return 1;
+            case 'GC':
+                return 2;
+            case 'CG':
+                return 3;
+        }
+    }
+
+    const decimalParts = sections.map((chars) => {
+        return getBase4Digit(chars);
+    })
+    console.log(decimalParts.slice(36, 40));
+
+
+
+    const avatar = {
+        size: parseInt(decimalParts.slice(0, 4).join("",""), 4).toString(10),
+        legs: parseInt(decimalParts.slice(4, 12).join("",""), 4).toString(10),
+        hue : parseInt(decimalParts.slice(12, 20).join("",""), 4).toString(10),
+        torso : parseInt(decimalParts.slice(20, 28).join("",""), 4).toString(10),
+        head : parseInt(decimalParts.slice(28, 36).join("",""), 4).toString(10),
+        saturation : parseInt(decimalParts.slice(36, 40).join("",""), 4).toString(10),
+        mouth : parseInt(decimalParts.slice(40, 48).join("",""), 4).toString(10),
+        eyes : parseInt(decimalParts.slice(48, 56).join("",""), 4).toString(10),
+        brightness : parseInt(decimalParts.slice(56, 60).join("",""), 4).toString(10),
+    }
+    return avatar;
+
+
+}
 
 
 function encodeDecToLetter(param) {
@@ -305,45 +359,58 @@ function overflow() {
 
 
 
+
+
 function vuln() {
-  const dna = Array(64).fill(encodeDecToLetter(0));
+    const dna = Array(64).fill(encodeDecToLetter(0));
 
 
-  dna[1] = encodeDecToLetter(1);
-
-  dna[6] = encodeDecToLetter(3); // legs 0-8 = 9
-  dna[7] = encodeDecToLetter(1);
+    dna[3] = encodeDecToLetter(1);    // Size needs to be 0 or 1
 
 
-  dna[10] = encodeDecToLetter(3); // legs 0-8 = 9
-  dna[11] = encodeDecToLetter(1);
+    // Legs is size=8 , so the value needs to be at most 2^(8+1) = 512 = 20000
+    dna[7] = encodeDecToLetter(2);
+    /*dna[8] = encodeDecToLetter(0);
+    dna[9] = encodeDecToLetter(0);
+    dna[10] = encodeDecToLetter(0); // legs 0-8 = 9
+    dna[11] = encodeDecToLetter(0); */
+
+    // Hue is size=8, so the value needs to be at most 2^(8+1) =
+    dna[15] = encodeDecToLetter(2);
+    /*dna[18] = encodeDecToLetter(3);    //
+    dna[19] = encodeDecToLetter(1);    */
 
 
-  dna[18] = encodeDecToLetter(3);    //
-  dna[19] = encodeDecToLetter(1);    //
+    // Torso is size=8, so the value needs to be at most 2^(8+1) = 512 = 20000
+    dna[23] = encodeDecToLetter(2);  // Torso = 7
+    // dna[27] = encodeDecToLetter(0);    // 0-8
 
 
-  dna[26] = encodeDecToLetter(3);  // Torso = 7
-  dna[27] = encodeDecToLetter(0);    // 0-8
-
-  dna[34] = encodeDecToLetter(3);    // Head 0-11
-  dna[35] = encodeDecToLetter(1);    // = 4
+    // Torso is size=8, so the value needs to be at most 2^(8+1) =
+    dna[31] = encodeDecToLetter(2);    // Head 0-11
+    // dna[35] = encodeDecToLetter(1);    // = 4
 
 
-  dna[38] = encodeDecToLetter(3);    // Saturation
-  dna[39] = encodeDecToLetter(3);    // = 4
+    // Saturation is size=4, so the value needs to be at most 2^(4+1) =
+    dna[37] = encodeDecToLetter(2);    // Saturation
+    /* dna[38] = encodeDecToLetter(3);    // Saturation
+    dna[39] = encodeDecToLetter(3);    // = 4 */
 
-  dna[46] = encodeDecToLetter(3);    // Mouth 0-11
-  dna[47] = encodeDecToLetter(1);    // 12
-
-  dna[54] = encodeDecToLetter(3);    // Eyes 0-11
-  dna[55] = encodeDecToLetter(1);    // 12
+    // Mouth is size=8, so the value needs to be at most 2^(8+1) = 512 = 20000
+    dna[43] = encodeDecToLetter(2);    // Mouth 0-11
+    //dna[47] = encodeDecToLetter(1);    // 12
 
 
-  dna[58] = encodeDecToLetter(3);    // Brightness
-  dna[59] = encodeDecToLetter(1);    // 4
+    // Eyes is size=8, so the value needs to be at most 2^(8+1) = 512 = 20000
+    dna[51] = encodeDecToLetter(2);    // Eyes 0-11
+    // dna[55] = encodeDecToLetter(1);    // 12
 
-  return dna.join("","");
+    // Brightness is size=4, so the value needs to be at most 2^(4+1) = 200
+
+    dna[57] = encodeDecToLetter(2);    // Brightness
+    // dna[59] = encodeDecToLetter(0);    // 4
+
+    return dna.join("","");
 }
 
 
@@ -386,12 +453,8 @@ function validateSequence(e) {
 
 
 
-console.log("SEND", '{"type":"WS_UPDATE_USER","avatar":"'+buildDnas(encoded)+'", "area": "1"}');
-console.log("RECEIVE", '{"type":"WS_USERS","users":{"7652":{"gdprDocId":"1171","email":"nico@nmac.com.ar","username":"netspanker","avatar":"'+buildDnas(encoded)+'","country":"AR"}},"initialLogin":true}')
-
-
-
-console.log(overflow());
+console.log(vuln());
+console.log(humanize(vuln()));
 
 
 // All zero + legs 9 = MISSINGNO.
