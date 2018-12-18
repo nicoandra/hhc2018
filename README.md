@@ -271,7 +271,7 @@ Deobfuscated:
                    
                 const section = e.slice(n, n + sectionLength);  // Get i characters, starting from n
                 
-                const s = parseInt(section, t); // Convert the strings from base-4 to base-10
+                const s = parseInt(section, t); // Convert the strings from base-4 to base-10, so 312 => 3 * 4^2 + 1*4 + 2 = 54 in decimal
                 
                 // n += r(16 * i / 4 / t); // Reworked below to be readable.
                 n = n + sectionLength;  // Move n to be i positions higher, to read the next number in the chain
@@ -287,4 +287,11 @@ Deobfuscated:
      
 
 ```
+
+
+
+# Game development
+
+## Terminals
+* Exit vi: type `:q` and you're done.
 
