@@ -353,6 +353,9 @@ Answer: Happy Trails
 
 Who submitted (First Last) the rejected talk titled Data Loss for Rainbow Teams: A Path in the Darkness? Please analyze the CFP site to find out. For hints on achieving this objective, please visit Minty Candycane and help her with the The Name Game Cranberry Pi terminal challenge.
 
+3. de Bruijn Sequences
+Method: enter the protected room. Talk to the elf. 
+Answer: `Welcome unprepared speaker!`
 
 ## Terminals
 * Exit vi (done): 
@@ -670,7 +673,72 @@ Store your credentials in some safer space.
 ```
 
 # Wunorse Openslae Samba terminal
-(WIP)
+1. Run `ps aux | more` to see all running processes:
+```bash
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.0  17952  2868 pts/0    Ss   20:35   0:00 /bin/bash /sbin/init
+root        10  0.0  0.0  45320  3164 pts/0    S    20:35   0:00 sudo -u manager /home/manag
+er/samba-wrapper.sh --verbosity=none --no-check-certificate --extraneous-command-argument --do-not-run-as-tyler --accept-sage-advice -a 42 -d~ --ignore-sw-holiday-special --suppress --suppress //localhost/report-upload/ directreindeerflatterystable -U report-upload
+root        11  0.0  0.0  45320  3152 pts/0    S    20:35   0:00 sudo -E -u manager /usr/bin/python /home/manager/report-check.py
+root        15  0.0  0.0  45320  3056 pts/0    S    20:35   0:00 sudo -u elf /bin/bash
+manager     16  0.0  0.0   9500  2600 pts/0    S    20:35   0:00 /bin/bash /home/manager/samba-wrapper.sh --verbosity=none --no-check-certificate --extraneous-command-argument --do-not
+-run-as-tyler --accept-sage-advice -a 42 -d~ --ignore-sw-holiday-special --suppress --suppress //localhost/report-upload/ directreindeerflatterystable -U report-upload
+manager     17  0.0  0.0  33848  7968 pts/0    S    20:35   0:00 /usr/bin/python /home/manager/report-check.py
+elf         19  0.0  0.0  18204  3364 pts/0    S    20:35   0:00 /bin/bash
+root        23  0.0  0.0 316664 15488 ?        Ss   20:35   0:00 /usr/sbin/smbd
+root        24  0.0  0.0 308372  5888 ?        S    20:35   0:00 /usr/sbin/smbd
+root        25  0.0  0.0 308364  4532 ?        S    20:35   0:00 /usr/sbin/smbd
+root        27  0.0  0.0 316664  6064 ?        S    20:35   0:00 /usr/sbin/smbd
+manager     37  0.0  0.0   4196   668 pts/0    S    20:37   0:00 sleep 60
+elf         42  0.0  0.0  36636  2740 pts/0    R+   20:38   0:00 ps aux
+elf         43  0.0  0.0   6420   916 pts/0    S+   20:38   0:00 more
+```
+
+2.Tried logged in as user `report-upload`:
+`smbclient -U report-upload //localhost/report-upload/`
+
+3.When asked for a password, entered `directreindeerflatterystable`
+
+4.Got access to Samba share. Then run `put report.txt report.txt`. Seemed to work:
+```bash
+smb: \> put report.txt report.txt
+putting file report.txt as \report.txt (250.5 kb/s) (average 250.5 kb/s)
+smb: \> Terminated
+elf@e167a3f21960:~$ 
+                                                                               
+                               .;;;;;;;;;;;;;;;'                               
+                             ,NWOkkkkkkkkkkkkkkNN;                             
+                           ..KM; Stall Mucking ,MN..                           
+                         OMNXNMd.             .oMWXXM0.                        
+                        ;MO   l0NNNNNNNNNNNNNNN0o   xMc                        
+                        :MO                         xMl             '.         
+                        :MO   dOOOOOOOOOOOOOOOOOd.  xMl             :l:.       
+ .cc::::::::;;;;;;;;;;;,oMO  .0NNNNNNNNNNNNNNNNN0.  xMd,,,,,,,,,,,,,clll:.     
+ 'kkkkxxxxxddddddoooooooxMO   ..'''''''''''.        xMkcccccccllllllllllooc.   
+ 'kkkkxxxxxddddddoooooooxMO  .MMMMMMMMMMMMMM,       xMkcccccccllllllllllooool  
+ 'kkkkxxxxxddddddoooooooxMO   '::::::::::::,        xMkcccccccllllllllllool,   
+ .ooooollllllccccccccc::dMO                         xMx;;;;;::::::::lllll'     
+                        :MO  .ONNNNNNNNXk           xMl             :lc'       
+                        :MO   dOOOOOOOOOo           xMl             ;.         
+                        :MO   'cccccccccccccc:'     xMl                        
+                        :MO  .WMMMMMMMMMMMMMMMW.    xMl                        
+                        :MO    ...............      xMl                        
+                        .NWxddddddddddddddddddddddddNW'                        
+                          ;ccccccccccccccccccccccccc;                          
+                                                                               
+
+
+
+You have found the credentials I just had forgot,
+And in doing so you've saved me trouble untold.
+Going forward we'll leave behind policies old,
+Building separate accounts for each elf in the lot.
+
+-Wunorse Openslae
+```
+
+
+# Exit Python terminal
 
 ```bash
 >>> os = eval('__im'+'port__("os")')
@@ -797,9 +865,34 @@ The challenge name aims to "Directory something"; which seems to be a hint to lo
 5. Find the record for `Data Loss for Rainbow Teams: A Path in the Darkness`, the answer is `John,McClane`
 
 
+# Enter the Code to Unlock the Door
+1. Characters are: Triangle, Square, Circle and Star.
+2. 4 characters * 4 positions = 4^4 = 256 options
+3. Get the de Brujin sequence:
+`0 0 0 0 1 0 0 0 2 0 0 0 3 0 0 1 1 0 0 1 2 0 0 1 3 0 0 2 1 0 0 2 2 0 0 2 3 0 0 3 1 0 0 3 2 0 0 3 3 0 1 0 1 0 2 0 1 0 3 0 1 1 1 0 1 1 2 0 1 1 3 0 1 2 1 0 1 2 2 0 1 2 3 0 1 3 1 0 1 3 2 0 1 3 3 0 2 0 2 0 3 0 2 1 1 0 2 1 2 0 2 1 3 0 2 2 1 0 2 2 2 0 2 2 3 0 2 3 1 0 2 3 2 0 2 3 3 0 3 0 3 1 1 0 3 1 2 0 3 1 3 0 3 2 1 0 3 2 2 0 3 2 3 0 3 3 1 0 3 3 2 0 3 3 3 1 1 1 1 2 1 1 1 3 1 1 2 2 1 1 2 3 1 1 3 2 1 1 3 3 1 2 1 2 1 3 1 2 2 2 1 2 2 3 1 2 3 2 1 2 3 3 1 3 1 3 2 2 1 3 2 3 1 3 3 2 1 3 3 3 2 2 2 2 3 2 2 3 3 2 3 2 3 3 3 3 (0 0 0) `
+4. Convert it to a Javascript array:
+```javascript
+let chars = "0 0 0 0 1 0 0 0 2 0 0 0 3 0 0 1 1 0 0 1 2 0 0 1 3 0 0 2 1 0 0 2 2 0 0 2 3 0 0 3 1 0 0 3 2 0 0 3 3 0 1 0 1 0 2 0 1 0 3 0 1 1 1 0 1 1 2 0 1 1 3 0 1 2 1 0 1 2 2 0 1 2 3 0 1 3 1 0 1 3 2 0 1 3 3 0 2 0 2 0 3 0 2 1 1 0 2 1 2 0 2 1 3 0 2 2 1 0 2 2 2 0 2 2 3 0 2 3 1 0 2 3 2 0 2 3 3 0 3 0 3 1 1 0 3 1 2 0 3 1 3 0 3 2 1 0 3 2 2 0 3 2 3 0 3 3 1 0 3 3 2 0 3 3 3 1 1 1 1 2 1 1 1 3 1 1 2 2 1 1 2 3 1 1 3 2 1 1 3 3 1 2 1 2 1 3 1 2 2 2 1 2 2 3 1 2 3 2 1 2 3 3 1 3 1 3 2 2 1 3 2 3 1 3 3 2 1 3 3 3 2 2 2 2 3 2 2 3 3 2 3 2 3 3 3 3 0 0 0".split(' ')
+```
+5. Loop through the array, pressing each of the buttons:
+```javascript
+chars.forEach((thisChar) => { addShape(thisChar) })
+```
+6. Running the code will make XHR requests for each attempt; all of them returning `{"success":false,"message":"Incorrect guess."}`; except:
+`https://doorpasscode.kringlecastle.com/checkpass.php?i=0120&resourceId=d3f52771-16c0-40c1-91f2-383d1667b4d5` which will return:
+
+`{"success":true,"resourceId":"d3f52771-16c0-40c1-91f2-383d1667b4d5","hash":"01ea8727dec2cf58a9f7557a40cecc971d670f47d40d3940e901e97b0f885b26","message":"Correct guess!"}`
 
 
 
 
 
 
+
+
+
+# To Do List
+
+
+# Identified services:
+https://packalyzer.kringlecastle.com/ > See source code of the page, look around for comments

@@ -1,0 +1,28 @@
+{
+  "name": "hhc2018",
+  "version": "1.0.0",
+  "description": "Notes on the holiday hack challenge.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicoandra/hhc2018.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicoandra/hhc2018/issues"
+  },
+  "homepage": "https://github.com/nicoandra/hhc2018#readme",
+  "dependencies": {
+    "csv": "^5.0.1",
+    "jquery": "^3.3.1",
+    "jsdom": "^13.1.0",
+    "request": "^2.88.0"
+  }
+}
