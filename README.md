@@ -341,7 +341,7 @@ __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: {
 
 
 # Answers
-1. Orientation challenge: 
+1. Orientation challenge:
 
 _What phrase is revealed when you answer all of the questions at the KringleCon Holiday Hack History kiosk inside the castle? For hints on achieving this objective, please visit Bushy Evergreen and help him with the Essential Editor Skills Cranberry Pi terminal challenge._
 
@@ -354,11 +354,11 @@ Answer: Happy Trails
 Who submitted (First Last) the rejected talk titled Data Loss for Rainbow Teams: A Path in the Darkness? Please analyze the CFP site to find out. For hints on achieving this objective, please visit Minty Candycane and help her with the The Name Game Cranberry Pi terminal challenge.
 
 3. de Bruijn Sequences
-Method: enter the protected room. Talk to the elf. 
+Method: enter the protected room. Talk to the elf.
 Answer: `Welcome unprepared speaker!`
 
 ## Terminals
-* Exit vi (done): 
+* Exit vi (done):
 type `:q` and you're done.
 
 
@@ -394,7 +394,7 @@ onboard.db: SQLite 3.x database
 4. Now we'll need to find a way to explore that onboard.db SQLIte DB.
 ```bash
 Validating data store for employee onboard information.
-Enter address of server: 1.1.1.1; sqlite3 
+Enter address of server: 1.1.1.1; sqlite3
 connect: Network is unreachable
 SQLite version 3.11.0 2016-02-15 17:29:24
 Enter ".help" for usage hints.
@@ -432,30 +432,30 @@ Loading, please wait......
 Enter Mr. Chan's first name: Scott
 
 
-                                                                                
+
     .;looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooool:'    
   'ooooooooooookOOooooxOOdodOOOOOOOdoxOOdoooooOOkoooooooxO000Okdooooooooooooo;  
- 'oooooooooooooXMWooooOMMxodMMNKKKKxoOMMxoooooWMXoooookNMWK0KNMWOooooooooooooo; 
- :oooooooooooooXMWooooOMMxodMM0ooooooOMMxoooooWMXooooxMMKoooooKMMkooooooooooooo 
- coooooooooooooXMMMMMMMMMxodMMWWWW0ooOMMxoooooWMXooooOMMkoooookMM0ooooooooooooo 
- coooooooooooooXMWdddd0MMxodMM0ddddooOMMxoooooWMXooooOMMOoooooOMMkooooooooooooo 
- coooooooooooooXMWooooOMMxodMMKxxxxdoOMMOkkkxoWMXkkkkdXMW0xxk0MMKoooooooooooooo 
- cooooooooooooo0NXooookNNdodXNNNNNNkokNNNNNNOoKNNNNNXookKNNWNXKxooooooooooooooo 
- cooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo 
+ 'oooooooooooooXMWooooOMMxodMMNKKKKxoOMMxoooooWMXoooookNMWK0KNMWOooooooooooooo;
+ :oooooooooooooXMWooooOMMxodMM0ooooooOMMxoooooWMXooooxMMKoooooKMMkooooooooooooo
+ coooooooooooooXMMMMMMMMMxodMMWWWW0ooOMMxoooooWMXooooOMMkoooookMM0ooooooooooooo
+ coooooooooooooXMWdddd0MMxodMM0ddddooOMMxoooooWMXooooOMMOoooooOMMkooooooooooooo
+ coooooooooooooXMWooooOMMxodMMKxxxxdoOMMOkkkxoWMXkkkkdXMW0xxk0MMKoooooooooooooo
+ cooooooooooooo0NXooookNNdodXNNNNNNkokNNNNNNOoKNNNNNXookKNNWNXKxooooooooooooooo
+ cooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
  cooooooooooooooooooooooooooooooooooMYcNAMEcISooooooooooooooooooooooooooooooooo
- cddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddo 
- OMMMMMMMMMMMMMMMNXXWMMMMMMMNXXWMMMMMMWXKXWMMMMWWWWWWWWWMWWWWWWWWWMMMMMMMMMMMMW 
- OMMMMMMMMMMMMW:  .. ;MMMk'     .NMX:.  .  .lWO         d         xMMMMMMMMMMMW 
- OMMMMMMMMMMMMo  OMMWXMMl  lNMMNxWK  ,XMMMO  .MMMM. .MMMMMMM, .MMMMMMMMMMMMMMMW 
- OMMMMMMMMMMMMX.  .cOWMN  'MMMMMMM;  WMMMMMc  KMMM. .MMMMMMM, .MMMMMMMMMMMMMMMW 
- OMMMMMMMMMMMMMMKo,   KN  ,MMMMMMM,  WMMMMMc  KMMM. .MMMMMMM, .MMMMMMMMMMMMMMMW 
- OMMMMMMMMMMMMKNMMMO  oM,  dWMMWOWk  cWMMMO  ,MMMM. .MMMMMMM, .MMMMMMMMMMMMMMMW 
- OMMMMMMMMMMMMc ...  cWMWl.  .. .NMk.  ..  .oMMMMM. .MMMMMMM, .MMMMMMMMMMMMMMMW 
- xXXXXXXXXXXXXXKOxk0XXXXXXX0kkkKXXXXXKOkxkKXXXXXXXKOKXXXXXXXKO0XXXXXXXXXXXXXXXK 
- .oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo, 
+ cddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddo
+ OMMMMMMMMMMMMMMMNXXWMMMMMMMNXXWMMMMMMWXKXWMMMMWWWWWWWWWMWWWWWWWWWMMMMMMMMMMMMW
+ OMMMMMMMMMMMMW:  .. ;MMMk'     .NMX:.  .  .lWO         d         xMMMMMMMMMMMW
+ OMMMMMMMMMMMMo  OMMWXMMl  lNMMNxWK  ,XMMMO  .MMMM. .MMMMMMM, .MMMMMMMMMMMMMMMW
+ OMMMMMMMMMMMMX.  .cOWMN  'MMMMMMM;  WMMMMMc  KMMM. .MMMMMMM, .MMMMMMMMMMMMMMMW
+ OMMMMMMMMMMMMMMKo,   KN  ,MMMMMMM,  WMMMMMc  KMMM. .MMMMMMM, .MMMMMMMMMMMMMMMW
+ OMMMMMMMMMMMMKNMMMO  oM,  dWMMWOWk  cWMMMO  ,MMMM. .MMMMMMM, .MMMMMMMMMMMMMMMW
+ OMMMMMMMMMMMMc ...  cWMWl.  .. .NMk.  ..  .oMMMMM. .MMMMMMM, .MMMMMMMMMMMMMMMW
+ xXXXXXXXXXXXXXKOxk0XXXXXXX0kkkKXXXXXKOkxkKXXXXXXXKOKXXXXXXXKO0XXXXXXXXXXXXXXXK
+ .oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo,
   .looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo,  
     .,cllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllc;.    
-                                                                                
+
 
 Congratulations!
 
@@ -488,13 +488,13 @@ elf@657c12ef9fab:~$ curl -X POST 127.0.0.1:8080 -v --http2-prior-knowledge
 > Host: 127.0.0.1:8080
 > User-Agent: curl/7.52.1
 > Accept: */*
-> 
+>
 * Connection state changed (MAX_CONCURRENT_STREAMS updated)!
-< HTTP/2 200 
+< HTTP/2 200
 < server: nginx/1.10.3
 < date: Thu, 27 Dec 2018 20:47:59 GMT
 < content-type: text/html; charset=UTF-8
-< 
+<
 <html>
  <head>
   <title>Candy Striper Turner-On'er</title>
@@ -502,7 +502,7 @@ elf@657c12ef9fab:~$ curl -X POST 127.0.0.1:8080 -v --http2-prior-knowledge
  <body>
  <p>To turn the machine on, simply POST to this URL with parameter "status=on"
 
- 
+
  </body>
 </html>```
 
@@ -510,32 +510,31 @@ elf@657c12ef9fab:~$ curl -X POST 127.0.0.1:8080 -v --http2-prior-knowledge
 `curl -X POST 127.0.0.1:8080 -v --http2-prior-knowledge -d"status=on"`
 
 5. Done! Response is:
-```bash
-
+```
 -Holly Evergreen
-<p>Congratulations! You've won and have successfully completed this challenge.
-<p>POSTing data in HTTP/2.0.
+<p>Congratulations! You\'ve won and have successfully completed this challenge.</p>
+<p>POSTing data in HTTP/2.0.</p>
 ```
 
 
 * GDB Challenge
 1-List, note you have gdb available.
-2-Ran gdb 
+2-Ran gdb
 3-Listed functions with (WIP)
 
 
 * Tangle coalbox:
 ```bash
  Tangle Coalbox, ER Investigator
-  Find the first name of the elf of whom a love poem 
-  was written.  Complete this challenge by submitting 
+  Find the first name of the elf of whom a love poem
+  was written.  Complete this challenge by submitting
   that name to runtoanswer.```
 1.Looking around I've noticed this folder: /home/elf/.secrets/her
 2. There's a text file which contains:
 
 
 ```bash
-elf@d9378db2c95b:~/.secrets/her$ cat poem.txt 
+elf@d9378db2c95b:~/.secrets/her$ cat poem.txt
 Once upon a sleigh so weary, Morcel scrubbed the grime so dreary,
 Shining many a beautiful sleighbell bearing cheer and sound so pure--
   There he cleaned them, nearly napping, suddenly there came a tapping,
@@ -634,11 +633,11 @@ Congratulations!
 
 * Pepper Minstix webmail hack terminal
 ```bash
-  Submit the compromised webmail username to 
+  Submit the compromised webmail username to
   runtoanswer to complete this challenge.```
-  
+
   (WIP)
-  
+
 * Python escape terminal
 1. Read
 
@@ -704,8 +703,8 @@ elf         43  0.0  0.0   6420   916 pts/0    S+   20:38   0:00 more
 smb: \> put report.txt report.txt
 putting file report.txt as \report.txt (250.5 kb/s) (average 250.5 kb/s)
 smb: \> Terminated
-elf@e167a3f21960:~$ 
-                                                                               
+elf@e167a3f21960:~$
+
                                .;;;;;;;;;;;;;;;'                               
                              ,NWOkkkkkkkkkkkkkkNN;                             
                            ..KM; Stall Mucking ,MN..                           
@@ -725,7 +724,7 @@ elf@e167a3f21960:~$
                         :MO    ...............      xMl                        
                         .NWxddddddddddddddddddddddddNW'                        
                           ;ccccccccccccccccccccccccc;                          
-                                                                               
+
 
 
 
@@ -766,12 +765,12 @@ elf         17  0.0  0.0  11280   960 pts/0    S+   16:43   0:00 grep pyt
 Loading, please wait......
 
 
- 
+
   ____        _   _                      
  |  _ \ _   _| |_| |__   ___  _ __       
  | |_) | | | | __| '_ \ / _ \| '_ \      
  |  __/| |_| | |_| | | | (_) | | | |     
- |_|___ \__, |\__|_| |_|\___/|_| |_| _ _ 
+ |_|___ \__, |\__|_| |_|\___/|_| |_| _ _
  | ____||___/___ __ _ _ __   ___  __| | |
  |  _| / __|/ __/ _` | '_ \ / _ \/ _` | |
  | |___\__ \ (_| (_| | |_) |  __/ (_| |_|
@@ -783,11 +782,11 @@ That's some fancy Python hacking -
 You have sent that lizard packing!
 
 -SugarPlum Mary
-            
+
 You escaped! Congratulations!
 
 0
->>> 
+>>>
 ```
 
 # Yule Log Analysis
@@ -813,7 +812,7 @@ elf@64476099810b:~$ cat log.xml | grep EventID | sort | uniq -c | sort -rn
       1 <EventID Qualifiers="">4647</EventID>
       1 <EventID Qualifiers="">4608</EventID>
 ```
-  
+
 2. What does each EventID mean?
 
 4608: Windows is starting up
@@ -884,7 +883,100 @@ chars.forEach((thisChar) => { addShape(thisChar) })
 `{"success":true,"resourceId":"d3f52771-16c0-40c1-91f2-383d1667b4d5","hash":"01ea8727dec2cf58a9f7557a40cecc971d670f47d40d3940e901e97b0f885b26","message":"Correct guess!"}`
 
 
+# Data repo analysis
+There is a ZIP file to find.
+1. Git clone the repo: `git clone https://git.kringlecastle.com/Upatree/santas_castle_automation`
+2. Run `find . -name "*.zip"` to find `./schematics/ventilation_diagram.zip`
+3. The hint says to talk to Stall Mucking Report; who says:
+4. Ran TruffleHog a few times:
 
+```bash
+root@c3c48536ad5c:/data# trufflehog --regex --entropy false ${REPO_PATH}
+
+~~~~~~~~~~~~~~~~~~~~~
+Reason: RSA private key
+Date: 2018-12-11 08:29:03
+Hash: 7f46bd5f88d0d5ac9f68ef50bebb7c52cfa67442
+Filepath: schematics/files/dot/ssh/key.rsa
+Branch: master
+Commit: cleaning files
+-----BEGIN RSA PRIVATE KEY-----
+~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+Reason: RSA private key
+Date: 2018-12-11 07:25:21
+Hash: 714ba109e573f37a6538beeeb7d11c9391e92a72
+Filepath: schematics/files/dot/ssh/key.rsa
+Branch: master
+Commit: support files for Santa's drone functions
+
+-----BEGIN RSA PRIVATE KEY-----
+
+
+root@c3c48536ad5c:/data# trufflehog --regex --entropy true ${REPO_PATH}
+
+Reason: High Entropy
+Date: 2018-12-11 08:25:45
+Hash: e76cb9adf58ec335d86355feb8dec3c74b9edcfe
+Filepath: schematics/for_elf_eyes_only.md
+Branch: master
+Commit: removing file
+@@ -0,0 +1,15 @@
++Our Lead InfoSec Engineer Bushy Evergreen has been noticing an increase of brute force attacks in our logs. Furthermore, Albaster discovered
+and published a vulnerability with our password length at the last Hacker Conference.
++
++Bushy directed our elves to change the password used to lock down our sensitive files to something stronger. Good thing he caught it before t
+hose dastardly villians did!
++
++
++Hopefully this is the last time we have to change our password again until next Christmas.
++
++Password = 'Yippee-ki-yay'
++
++Change ID = 'ESC[93m9ed54617547cfca783e0f81f8dc5c927e3d1e3'
+
+Reason: High Entropy
+Date: 2018-12-11 07:25:21
+Hash: 714ba109e573f37a6538beeeb7d11c9391e92a72
+Filepath: support_files/spec/support/Mstrctr.js
+Branch: master
+Commit: support files for Santa's drone functions
+
+@@ -1,5 +0,0 @@
+-
+-module.export.addNote = function () {
+-      console.log('Secret Key');
+-      return 'ESC[93mwPu4Ry8FBhckXWjCfjx5QlkRR8vcAqLBf6sgmrcjwFv0c1xjMUw1Qh+rWVQZTTRP';
+- };
+
+Reason: High Entropy
+Date: 2018-12-11 07:23:36
+Hash: 5f4f64140ee1388b4cccee577a6afd0b797bfff3
+Filepath: schematics/files/dot/PW/for_elf_eyes_only.md
+Branch: master
+Commit: removing accidental commit
+@@ -0,0 +1,15 @@
++Our Lead InfoSec Engineer Bushy Evergreen has been noticing an increase of brute force attacks in our logs. Furthermore, Albaster discovered and published a vulnerability with our password length at the last Hacker Conference.
++
++Bushy directed our elves to change the password used to lock down our sensitive files to something stronger. Good thing he caught it before those dastardly villians did!
++
++Hopefully this is the last time we have to change our password again until next Christmas.
++
++Password = 'Yippee-ki-yay'
++
++Change ID = 'ESC[93m9ed54617547cfca783e0f81f8dc5c927e3d1e3'
+```
+4. Special mention for https://git.kringlecastle.com/Upatree/santas_castle_automation/blob/master/schematics/EE3.jpg
+5. Try to open the zip file with the password `Yippee-ki-yay` and find the maps for the [first](assets/santas_castle_automation/ventilation_diagram/ventilation_diagram_1F.jpg) and [second](assets/santas_castle_automation/ventilation_diagram/ventilation_diagram_2F.jpg) floor of the vents maze.
+
+
+
+
+
+
+
+> Nadie puede ser felíz si la sociedad en la que vive no es felíz.
+> "Hay un punto en el cual tu propia felicidad podría ser cómplice en las causas por las cuales el rest de la sociedad la está pasando mal". Léase "Prefiero comer fideos todos los días que que vuelva la yegua"
 
 
 
