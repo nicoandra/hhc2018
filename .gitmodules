@@ -1,0 +1,3 @@
+[submodule "scripts/trufflehog"]
+	path = scripts/trufflehog
+	url = https://github.com/dxa4481/truffleHog
