@@ -83,7 +83,7 @@ The response seems to contain a response at the end:
 
 3. The plan would be to alert on DNS queries resolving any hostname which contains `77616E6E61636F6F6B69652E6D696E2E707331`.
 
-4. Following (these instructions)[https://paginas.fe.up.pt/~mgi98020/pgr/writing_snort_rules.htm#Basics], build the rule.
+4. Following [these instructions](https://paginas.fe.up.pt/~mgi98020/pgr/writing_snort_rules.htm#Basics), build the rule.
 
 `Action, protocol, Source Ip, Source port, Direction Operator, Destination Ip, Destination port, `
 
@@ -93,9 +93,9 @@ Looking for payload size first for performance reasons, as it's cheaper than loo
 `37 37 36 31 36 45 36 45 36 31 36 33 36 46 36 46 36 42 36 39 36 35 32 45 36 44 36 39 36 45 32 45 37 30 37 33 33 31`
 
 For outgoing traffic:
-`
+```
 alert udp 10.126.0.0/24 any -> any 53 (dsize: >20; content:"|37 37 36 31 36 45 36 45 36 31 36 33 36 46 36 46 36 42 36 39 36 35 32 45 36 44 36 39 36 45 32 45 37 30 37 33 33 31|"; sid: 10000001)
 alert udp any 53 -> 10.126.0.0/24 any (dsize: >100; content:"|37 37 36 31 36 45 36 45 36 31 36 33 36 46 36 46 36 42 36 39 36 35 32 45 36 44 36 39 36 45 32 45 37 30 37 33 33 31|"; sid: 10000002)
-`
+```
 
 5. The test passes: `[+] Congratulation! Snort is alerting on all ransomware and only the ransomware!`

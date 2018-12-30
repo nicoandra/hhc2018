@@ -406,8 +406,44 @@ Here's the [document](objectives/9b_malware_domain.md)
 See [terminals](terminals.md)
 
 # Piano lock
-1. Applied the de Brujin sequence.
-The alphabet would be `C Csh D Dsh E F G Gsh A Ash B Cc`  (so 12 symbols) and the password lenght is 18.
+1. Looked at the source code. One of the top lines includes a font from Google: `<link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">`
+2. The alphabet would be `C Csh D Dsh E Fsh G Gsh A Ash B Cc` (so 12 symbols) and the password length is 18.
+3. There's an interesting Javascript snippet and an asset:
+```javascript
+<img class="banner" id="banner" src='images/key-of-d-banner.png' onMouseDown='this.style.visibility="hidden"'>
+```
+The image reads: `Now that's a good tune. But the key isn't right`
+
+4. Maybe we need to use key of D?
+> D major (or the key of D) is a major scale based on D, consisting of the pitches D, E, F♯, G, A, B, and C♯. Its key signature consists of two sharps. Its relative minor is B minor and its parallel minor is D minor.
+
+Which means the symbols would be reduced to: `D E Fsh G A B Csh`, so 7 symbols.
+
+5. Looking at the chords and lyrics of the song `Halleluja`:
+```
+         G                  Em
+Now I've heard there was a secret chord
+     G                      Em
+That David played, and it pleased the Lord
+    C                D                   G    D                
+But you don't really care for music, do you?
+   G                  C           D
+It goes like this the fourth, the fifth
+    Em              C      
+The minor fall, the major lift
+    D               B7          Em
+The baffled king composing Hallelujah
+     C           Em          C           G  D G  D
+Hallelujah, Hallelujah, Hallelujah, Hallelu-u-jah
+
+```
+
+6. Note that `Em` appears in the song, but not in our alphabet. `Em = D#`; and `B7` will be played as `B`; converting the chords to (without lyrics):
+`G Dsh G Dsh C D G D G C D Dsh C D B Dsh C Dsh C G D G D`. There are 23 chords to be played, but we have only 18 positions.
+Re-read the lyrics. The part of `the fourth` 
+
+
+
 
 
 

@@ -492,12 +492,6 @@ Congratulations!
 ```
 
 
-
-
-# Snort Challenge
-1. Downloaded the PCAP files from  http://snortsensor1.kringlecastle.com/
-2. Analyzed DNS traffic with WireShark, my guess is that
-
 # HoHoHo Daddy TODO
 
 # Elf Terminal (Alabaster Snowball) TODO
