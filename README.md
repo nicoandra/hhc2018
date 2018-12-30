@@ -363,6 +363,7 @@ I think the page can be bruteforced as well.
 > When you break into the speaker unpreparedness room, what does Morcel Nougat say? For hints on achieving this objective, please visit Tangle Coalbox and help him with Lethal ForensicELFication Cranberry Pi terminal challenge.
 Method: enter the protected room. Talk to the elf.
 Answer: `Welcome unprepared speaker!`
+
 Here is the [report](objectives/3_de_brujin_sequences.md)
 
 # 4. Data Repo Analysis
@@ -403,6 +404,11 @@ Here's the [document](objectives/9b_malware_domain.md)
 
 ## Terminals
 See [terminals](terminals.md)
+
+# Piano lock
+1. Applied the de Brujin sequence.
+The alphabet would be `C Csh D Dsh E F G Gsh A Ash B Cc`  (so 12 symbols) and the password lenght is 18.
+
 
 
 
