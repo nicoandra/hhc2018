@@ -495,14 +495,11 @@ Commit: removing accidental commit
 5. Try to open the zip file with the password `Yippee-ki-yay` and find the maps for the [first](assets/santas_castle_automation/ventilation_diagram/ventilation_diagram_1F.jpg) and [second](assets/santas_castle_automation/ventilation_diagram/ventilation_diagram_2F.jpg) floor of the vents maze.
 
 
-
-
-
 #AD Privilege Discovery
 > Using the data set contained in this SANS Slingshot Linux image, find a reliable path from a Kerberoastable user to the Domain Admins group. What’s the user’s logon name? Remember to avoid RDP as a control path as it depends on separate local privilege escalation flaws. For hints on achieving this objective, please visit Holly Evergreen and help her with the CURLing Master Cranberry Pi terminal challenge.
 
 # Solve the maze
-The maze can be solved following the instructions [here](maze.md).
+The maze can be solved following the instructions [here](maze.md). You can also crawl it and build a map by yourself. Probably. I don't think the `hmac` hashes include any replay-attack protection.
 
 
 #Badge Manipulation
