@@ -1,0 +1,13 @@
+powershell:
+ image: mcr.microsoft.com/powershell
+# `docker-compose run --rm powershell`
+
+nodeserver:
+  image: node
+  working_dir: /usr/app
+  volumes:
+    - .:/usr/app
+  ports:
+    - 8084:8084
+  command: bash
+# run with `docker-compose run --rm --entrypoint bash nodeserver`; inside the container run `npm install; node index.js`

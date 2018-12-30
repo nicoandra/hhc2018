@@ -409,7 +409,7 @@ See [terminals](terminals.md)
 1. Looked at the source code. One of the top lines includes a font from Google: `<link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">`
 2. The alphabet would be `C Csh D Dsh E Fsh G Gsh A Ash B Cc` (so 12 symbols) and the password length is 18.
 3. There's an interesting Javascript snippet and an asset:
-```javascript
+```html
 <img class="banner" id="banner" src='images/key-of-d-banner.png' onMouseDown='this.style.visibility="hidden"'>
 ```
 The image reads: `Now that's a good tune. But the key isn't right`
@@ -440,12 +440,37 @@ Hallelujah, Hallelujah, Hallelujah, Hallelu-u-jah
 
 6. Note that `Em` appears in the song, but not in our alphabet. `Em = D#`; and `B7` will be played as `B`; converting the chords to (without lyrics):
 `G Dsh G Dsh C D G D G C D Dsh C D B Dsh C Dsh C G D G D`. There are 23 chords to be played, but we have only 18 positions.
-Re-read the lyrics. The part of `the fourth` 
+Re-read the lyrics. The part of `the fourth` is below `C`. Start a sequence from `you (G)`; until the end there are 17 chords. So start one before and you'll have a sequence of 18 chords:
+```
+D G D G C D Dsh C D B Dsh C Dsh C G D G D
+```
 
+7. Make a request with that sequence:
 
+```bash
 
+SEQ="DGDGCDDshCDBDshCDshCGDGD";
+curl "https://pianolock.kringlecastle.com/checkpass.php?i=$SEQ&resourceId=undefined" -v
 
+```
+It does not work...
 
+8. Get the de Brujin sequence from [this site](http://www.hakank.org/comb/debruijn.cgi?k=7&n=18&submit=Ok) and build a JS array with it:
+```
+const chars = "0 0 0 1 0 0 2 0 0 3 0 0 4 0 0 5 0 0 6 0 1 1 0 1 2 0 1 3 0 1 4 0 1 5 0 1 6 0 2 1 0 2 2 0 2 3 0 2 4 0 2 5 0 2 6 0 3 1 0 3 2 0 3 3 0 3 4 0 3 5 0 3 6 0 4 1 0 4 2 0 4 3 0 4 4 0 4 5 0 4 6 0 5 1 0 5 2 0 5 3 0 5 4 0 5 5 0 5 6 0 6 1 0 6 2 0 6 3 0 6 4 0 6 5 0 6 6 1 1 1 2 1 1 3 1 1 4 1 1 5 1 1 6 1 2 2 1 2 3 1 2 4 1 2 5 1 2 6 1 3 2 1 3 3 1 3 4 1 3 5 1 3 6 1 4 2 1 4 3 1 4 4 1 4 5 1 4 6 1 5 2 1 5 3 1 5 4 1 5 5 1 5 6 1 6 2 1 6 3 1 6 4 1 6 5 1 6 6 2 2 2 3 2 2 4 2 2 5 2 2 6 2 3 3 2 3 4 2 3 5 2 3 6 2 4 3 2 4 4 2 4 5 2 4 6 2 5 3 2 5 4 2 5 5 2 5 6 2 6 3 2 6 4 2 6 5 2 6 6 3 3 3 4 3 3 5 3 3 6 3 4 4 3 4 5 3 4 6 3 5 4 3 5 5 3 5 6 3 6 4 3 6 5 3 6 6 4 4 4 5 4 4 6 4 5 5 4 5 6 4 6 5 4 6 6 5 5 5 6 5 6 6 6 0 0".split(' ');
+
+const symbols = "D E Fsh G A B Csh".split(' ');
+const chords = chars.map((charNumber) => {
+    return symbols[charNumber];
+})
+
+console.log(chords);
+
+chords.forEach((chord) => {
+  notePress(chord);
+})
+
+```
 
 
 # Solve the maze
