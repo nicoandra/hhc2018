@@ -1,5 +1,7 @@
 
 # Data repo analysis
+> Retrieve the encrypted ZIP file from the North Pole Git repository. What is the password to open this file? For hints on achieving this objective, please visit Wunorse Openslae and help him with Stall Mucking Report Cranberry Pi terminal challenge.
+
 There is a ZIP file to find.
 1. Git clone the repo: `git clone https://git.kringlecastle.com/Upatree/santas_castle_automation`
 2. Run `find . -name "*.zip"` to find `./schematics/ventilation_diagram.zip`

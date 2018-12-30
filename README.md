@@ -342,16 +342,15 @@ __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: {
 
 # Answers
 # 1. Orientation challenge:
-
-_What phrase is revealed when you answer all of the questions at the KringleCon Holiday Hack History kiosk inside the castle? For hints on achieving this objective, please visit Bushy Evergreen and help him with the Essential Editor Skills Cranberry Pi terminal challenge._
+> What phrase is revealed when you answer all of the questions at the KringleCon Holiday Hack History kiosk inside the castle? For hints on achieving this objective, please visit Bushy Evergreen and help him with the Essential Editor Skills Cranberry Pi terminal challenge.
 
 Method: Watched the video at https://www.youtube.com/watch?v=31JsKzsbFUo and entered the answers.
+Answer: Happy Trails.
 
-Answer: Happy Trails
+I think the page can be bruteforced as well.
 
 # 2. Directory Browsing:
-Who submitted (First Last) the rejected talk titled Data Loss for Rainbow Teams: A Path in the Darkness? Please analyze the CFP site to find out. For hints on achieving this objective, please visit Minty Candycane and help her with the The Name Game Cranberry Pi terminal challenge.
-
+> Who submitted (First Last) the rejected talk titled Data Loss for Rainbow Teams: A Path in the Darkness? Please analyze the CFP site to find out. For hints on achieving this objective, please visit Minty Candycane and help her with the The Name Game Cranberry Pi terminal challenge.
 
 1. Visit the site https://cfp.kringlecastle.com
 2. Use DirBuster to find more directories: `docker run --rm hypnza/dirbuster -u https://cfp.kringlecastle.com/`
@@ -361,31 +360,51 @@ Who submitted (First Last) the rejected talk titled Data Loss for Rainbow Teams:
 
 
 # 3. de Bruijn Sequences
+> When you break into the speaker unpreparedness room, what does Morcel Nougat say? For hints on achieving this objective, please visit Tangle Coalbox and help him with Lethal ForensicELFication Cranberry Pi terminal challenge.
 Method: enter the protected room. Talk to the elf.
 Answer: `Welcome unprepared speaker!`
 Here is the [report](objectives/3_de_brujin_sequences.md)
 
 # 4. Data Repo Analysis
-Retrieve the encrypted ZIP file from the North Pole Git repository. What is the password to open this file? For hints on achieving this objective, please visit Wunorse Openslae and help him with Stall Mucking Report Cranberry Pi terminal challenge.
+> Retrieve the encrypted ZIP file from the North Pole Git repository. What is the password to open this file? For hints on achieving this objective, please visit Wunorse Openslae and help him with Stall Mucking Report Cranberry Pi terminal challenge.
+
 Here is the [report](objectives/4_data_repo_analysis.md)
 
 # 5. AD Privilege Discovery
-Using the data set contained in this SANS Slingshot Linux image, find a reliable path from a Kerberoastable user to the Domain Admins group. What’s the user’s logon name? Remember to avoid RDP as a control path as it depends on separate local privilege escalation flaws. For hints on achieving this objective, please visit Holly Evergreen and help her with the CURLing Master Cranberry Pi terminal challenge.
+> Using the data set contained in this SANS Slingshot Linux image, find a reliable path from a Kerberoastable user to the Domain Admins group. What’s the user’s logon name? Remember to avoid RDP as a control path as it depends on separate local privilege escalation flaws. For hints on achieving this objective, please visit Holly Evergreen and help her with the CURLing Master Cranberry Pi terminal challenge.
+
+1. Ingest the .ova file in VirtualBox, and run the VM. I had a few issues running it, changed settings to Linux 64 instead of 32 and then it worked when starting it in "detached mode".
+2. Run BloodHound in the VM
+3. Watch the video Holly Evergreen provided, https://www.youtube.com/watch?v=gOpsLiJFI1o&feature=youtu.be
+4. Once you've got BloodHound running, go to the Queries tab (top right) and click on "Shortest path to Domain Admins from Kerberoastable"
+5. Click in the filter option and uncheck "CanRDP". The challenge says _remeber to avoid RDP..._ so that's what I've done.
+6. If things went right, you should have `(Ldubej00320) -MemberOf-> (IT_00332) -AdminTo-> (Comp00185.ad.kringlecastle.com) -HasSession-> (JBetak00084) -MemberOf-> (Domain Admins)`
+7. The logon name we need seems to be "Ldubej00320@ad.kringlecastle.com"
+
+# 6. Badge Manipulation
+> Bypass the authentication mechanism associated with the room near Pepper Minstix. A [sample employee badge](../assets/images/alabaster_badge.jpg) is available. What is the access control number revealed by the door authentication panel? For hints on achieving this objective, please visit Pepper Minstix and help her with the Yule Log Analysis Cranberry Pi terminal challenge.
+
+Here is the [report](objectives/6_badge_manipulation.md)
+
+# 9. Ransomware Recovery
+> Alabaster Snowball is in dire need of your help. Santa's file server has been hit with malware. Help Alabaster Snowball deal with the malware on Santa's server by completing several tasks. For hints on achieving this objective, please visit Shinny Upatree and help him with the Sleigh Bell Lottery Cranberry Pi terminal challenge.
+
+## Catch the Malware
+> Assist Alabaster by building a Snort filter to identify the malware plaguing Santa's Castle.
+
+Here's the [document](objectives/9a_snort_capture.md)
 
 
+## Identify the Domain
+> Using the Word docm file, identify the domain name that the malware communicates with.
+
+Here's the [document](objectives/9b_malware_domain.md)
 
 
 ## Terminals
 See [terminals](terminals.md)
 
-## Challenges:
 
-
-
-
-
-#AD Privilege Discovery
-> Using the data set contained in this SANS Slingshot Linux image, find a reliable path from a Kerberoastable user to the Domain Admins group. What’s the user’s logon name? Remember to avoid RDP as a control path as it depends on separate local privilege escalation flaws. For hints on achieving this objective, please visit Holly Evergreen and help her with the CURLing Master Cranberry Pi terminal challenge.
 
 # Solve the maze
 The maze can be solved following the instructions [here](maze.md). You can also crawl it and build a map by yourself. Probably. I don't think the `hmac` hashes include any replay-attack protection.
