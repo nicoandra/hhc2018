@@ -341,7 +341,7 @@ __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: {
 
 
 # Answers
-1. Orientation challenge:
+# 1. Orientation challenge:
 
 _What phrase is revealed when you answer all of the questions at the KringleCon Holiday Hack History kiosk inside the castle? For hints on achieving this objective, please visit Bushy Evergreen and help him with the Essential Editor Skills Cranberry Pi terminal challenge._
 
@@ -349,13 +349,34 @@ Method: Watched the video at https://www.youtube.com/watch?v=31JsKzsbFUo and ent
 
 Answer: Happy Trails
 
-2. Directory Browsing:
-
+# 2. Directory Browsing:
 Who submitted (First Last) the rejected talk titled Data Loss for Rainbow Teams: A Path in the Darkness? Please analyze the CFP site to find out. For hints on achieving this objective, please visit Minty Candycane and help her with the The Name Game Cranberry Pi terminal challenge.
 
-3. de Bruijn Sequences
+
+1. Visit the site https://cfp.kringlecastle.com
+2. Use DirBuster to find more directories: `docker run --rm hypnza/dirbuster -u https://cfp.kringlecastle.com/`
+3. You'll notice there's a /cfp/cfp.html file, but there's also a /cpf/ directory. Such directory had an open listing.
+4. Click on `https://cfp.kringlecastle.com/cfp/rejected-talks.csv`
+5. Find the record for `Data Loss for Rainbow Teams: A Path in the Darkness`, the answer is `John,McClane`
+
+
+# 3. de Bruijn Sequences
 Method: enter the protected room. Talk to the elf.
 Answer: `Welcome unprepared speaker!`
+
+# 4. Data Repo Analysis
+Difficulty:
+Retrieve the encrypted ZIP file from the North Pole Git repository. What is the password to open this file? For hints on achieving this objective, please visit Wunorse Openslae and help him with Stall Mucking Report Cranberry Pi terminal challenge.
+
+
+
+
+
+# 5. AD Privilege Discovery
+Difficulty:
+Using the data set contained in this SANS Slingshot Linux image, find a reliable path from a Kerberoastable user to the Domain Admins group. What’s the user’s logon name? Remember to avoid RDP as a control path as it depends on separate local privilege escalation flaws. For hints on achieving this objective, please visit Holly Evergreen and help her with the CURLing Master Cranberry Pi terminal challenge.
+
+
 
 ## Terminals
 See [terminals](terminals.md)
@@ -363,14 +384,6 @@ See [terminals](terminals.md)
 ## Challenges:
 
 
-# Find the name of the rejected talk
-The challenge name aims to "Directory something"; which seems to be a hint to look for hidden directories. Tried /.git and /.svn  but did not found anything. So...
-
-1. Visit the site https://cfp.kringlecastle.com
-2. Use DirBuster to find more directories: `docker run --rm hypnza/dirbuster -u https://cfp.kringlecastle.com/`
-3. You'll notice there's a /cfp/cfp.html file, but there's also a /cpf/ directory. Such directory had an open listing.
-4. Click on `https://cfp.kringlecastle.com/cfp/rejected-talks.csv`
-5. Find the record for `Data Loss for Rainbow Teams: A Path in the Darkness`, the answer is `John,McClane`
 
 
 # Enter the Code to Unlock the Door
@@ -397,9 +410,14 @@ There is a ZIP file to find.
 1. Git clone the repo: `git clone https://git.kringlecastle.com/Upatree/santas_castle_automation`
 2. Run `find . -name "*.zip"` to find `./schematics/ventilation_diagram.zip`
 3. The hint says to talk to Stall Mucking Report; who says:
+> Speaking of good ways to find credentials, have you heard of Trufflehog? It's a cool way to dig through repositories for passwords, RSA keys, and more.
+> I mean, no one EVER uploads sensitive credentials to public repositories, right? But if they did, this would be a great tool for finding them.
+> But hey, listen to me ramble. If you're interested in Trufflehog, you should check out Brian Hostetler's talk!
+> Have you tried the entropy=True option when running Trufflehog? It is amazing how much deeper it will dig!
+
 4. Ran TruffleHog a few times:
 
-```bash
+```
 root@c3c48536ad5c:/data# trufflehog --regex --entropy false ${REPO_PATH}
 
 ~~~~~~~~~~~~~~~~~~~~~
@@ -417,7 +435,7 @@ Date: 2018-12-11 07:25:21
 Hash: 714ba109e573f37a6538beeeb7d11c9391e92a72
 Filepath: schematics/files/dot/ssh/key.rsa
 Branch: master
-Commit: support files for Santa's drone functions
+Commit: support files for Santa''s drone functions
 
 -----BEGIN RSA PRIVATE KEY-----
 
@@ -449,13 +467,13 @@ Date: 2018-12-11 07:25:21
 Hash: 714ba109e573f37a6538beeeb7d11c9391e92a72
 Filepath: support_files/spec/support/Mstrctr.js
 Branch: master
-Commit: support files for Santa's drone functions
+Commit: support files for Santa''s drone functions
 
 @@ -1,5 +0,0 @@
 -
 -module.export.addNote = function () {
 -      console.log('Secret Key');
--      return 'ESC[93mwPu4Ry8FBhckXWjCfjx5QlkRR8vcAqLBf6sgmrcjwFv0c1xjMUw1Qh+rWVQZTTRP';
+-      return 'mwPu4Ry8FBhckXWjCfjx5QlkRR8vcAqLBf6sgmrcjwFv0c1xjMUw1Qh+rWVQZTTRP';
 - };
 
 Reason: High Entropy
@@ -468,66 +486,23 @@ Commit: removing accidental commit
 +Our Lead InfoSec Engineer Bushy Evergreen has been noticing an increase of brute force attacks in our logs. Furthermore, Albaster discovered and published a vulnerability with our password length at the last Hacker Conference.
 +
 +Bushy directed our elves to change the password used to lock down our sensitive files to something stronger. Good thing he caught it before those dastardly villians did!
-+
 +Hopefully this is the last time we have to change our password again until next Christmas.
-+
 +Password = 'Yippee-ki-yay'
-+
-+Change ID = 'ESC[93m9ed54617547cfca783e0f81f8dc5c927e3d1e3'
++Change ID = '93m9ed54617547cfca783e0f81f8dc5c927e3d1e3'
 ```
+
 4. Special mention for https://git.kringlecastle.com/Upatree/santas_castle_automation/blob/master/schematics/EE3.jpg
 5. Try to open the zip file with the password `Yippee-ki-yay` and find the maps for the [first](assets/santas_castle_automation/ventilation_diagram/ventilation_diagram_1F.jpg) and [second](assets/santas_castle_automation/ventilation_diagram/ventilation_diagram_2F.jpg) floor of the vents maze.
-6. Enter the password in the badge.
+
+
+
+
 
 #AD Privilege Discovery
 > Using the data set contained in this SANS Slingshot Linux image, find a reliable path from a Kerberoastable user to the Domain Admins group. What’s the user’s logon name? Remember to avoid RDP as a control path as it depends on separate local privilege escalation flaws. For hints on achieving this objective, please visit Holly Evergreen and help her with the CURLing Master Cranberry Pi terminal challenge.
 
-
 # Solve the maze
-1. When you get into the maze you start at position `(x, y, z) =  (23, 19, 1)` and looking in the _west_ direction.
-2. I've started to write a software to crawl the maze (as it is the _Google_ maze, I thought it would be good to crawl it) but then found out the maps in the schematics ZIP file.
-3. Converted the map to the right orientation and numbered each column and row. We know the orientation of the first floor, not necessarily the second one. See the [annotated version](assets/santas_castle_automation/ventilation_diagram/ventilation_diagram_1F_noted.jpg).
-
-```
-Up 6 times until you reach 17, 19.
-Right, Up 2 times until you reach 17, 17
-Left, Up 4 times until you reach 13, 17
-Right, Up 4 times until you reach 13, 13
-Right, Up 6 times until you reach 13, 19
-Left, Up 2 times until you reach 19, 11
-Left, Up 2 times until you reach 17, 11
-Right, Up 2 times till 17, 9
-Left, Up 2 times
-Right, Up 4 times, you should have reached 15, 5 (Chrome will say you just left 15, 6)
-Left + 2 Up till you reach 13, 5
-Right, 2 Up till you reach 13, 3
-Left, 4 up till you reach 9, 3
-Right, 2 up till you reach 9, 1
-Left, 6 up till you reach 3, 1
-Left, 2 up till you reach 3, 3
-Right, 2 up till you reach 1, 3
-Right, 2 up till you reach the exit to the second floor. Click the arrow up.
-
-You'll be heading north. So Right till you are facing East.
-Up 8 times till you reach 9, 1
-Right, Up 6 times till you reach 9, 7
-Right, up 2 times
-Left, up 2 times till you reach 7, 9
-Right, up 2 times till you reach 5, 9
-Left, up 4 times
-Left, up 8 times.
-Left, 2 up,
-Right, 2 up.
-Left, 2 up,
-Right, 6 up till you reach 21, 9.
-Left, 4 up.
-Right, 2 up.
-Right, 2 up.
-
-Exit! If you did it in a separate tab you'll see "Congratulations!"
-```
-
-This will leave you in Santa's secret room.
+The maze can be solved following the instructions [here](maze.md).
 
 
 #Badge Manipulation
