@@ -16,6 +16,11 @@ chars.forEach((thisChar) => { addShape(thisChar) })
 6. Running the code will make XHR requests for each attempt; all of them returning `{"success":false,"message":"Incorrect guess."}`; except one of them:
 `https://doorpasscode.kringlecastle.com/checkpass.php?i=0120&resourceId=d3f52771-16c0-40c1-91f2-383d1667b4d5` which will return:
 
-`{"success":true,"resourceId":"d3f52771-16c0-40c1-91f2-383d1667b4d5","hash":"01ea8727dec2cf58a9f7557a40cecc971d670f47d40d3940e901e97b0f885b26","message":"Correct guess!"}`
+```JSON
+{ "success":true,
+  "resourceId":"d3f52771-16c0-40c1-91f2-383d1667b4d5",
+  "hash":"01ea8727dec2cf58a9f7557a40cecc971d670f47d40d3940e901e97b0f885b26",
+  "message":"Correct guess!"}
+```
 
 7. The code seems to be `0120`. Enter the code in the lock and you're done.
