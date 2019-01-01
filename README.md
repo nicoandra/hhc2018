@@ -438,8 +438,19 @@ Hallelujah, Hallelujah, Hallelujah, Hallelu-u-jah
 
 ```
 
+
+
+
 6. Note that `Em` appears in the song, but not in our alphabet. `Em = D#`; and `B7` will be played as `B`; converting the chords to (without lyrics):
 `G Dsh G Dsh C D G D G C D Dsh C D B Dsh C Dsh C G D G D`. There are 23 chords to be played, but we have only 18 positions.
+
+
+G Dsh G Dsh C D G D G C D Dsh C D B Dsh C Dsh C G D G D
+5 2S  5 2S  1 2 5 2 5 1 2 2   1 2 7     1     1 5 2 5 2
+
+
+
+
 Re-read the lyrics. The part of `the fourth` is below `C`. Start a sequence from `you (G)`; until the end there are 17 chords. So start one before and you'll have a sequence of 18 chords:
 ```
 D G D G C D Dsh C D B Dsh C Dsh C G D G D

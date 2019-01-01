@@ -61,7 +61,7 @@ tshark -r snort.log.pcap
 0190   34 34 36 36 39 36 63 36 35 35 33 35 32            446696c655352
 ```
 
-The response seems to contain a response at the end:
+The response seems to contain special content at the end:
 ```bash
 0000   35 33 35 37 32 65 35 37 37 32 36 39 37 34 36 35
 0010   32 38 32 34 34 31 34 35 35 33 35 30 32 65 34 39
@@ -87,8 +87,8 @@ The response seems to contain a response at the end:
 
 `Action, protocol, Source Ip, Source port, Direction Operator, Destination Ip, Destination port, `
 
-We want to alert on DNS traffic, so outgoing UDP packets to port 53, when the payload size is greater than 70 bytes, and containing `77616E6E61636F6F6B69652E6D696E2E707331` (in binary) .
-Looking for payload size first for performance reasons, as it's cheaper than looking at the package content itself.
+We want to alert on DNS traffic, so outgoing UDP packets to port 53, when the payload size is greater than 20 bytes, and containing `77616E6E61636F6F6B69652E6D696E2E707331` (in binary) .
+Looking for payload size for performance reasons, as it's cheaper than looking at the package content itself.
 
 `37 37 36 31 36 45 36 45 36 31 36 33 36 46 36 46 36 42 36 39 36 35 32 45 36 44 36 39 36 45 32 45 37 30 37 33 33 31`
 
