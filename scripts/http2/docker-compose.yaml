@@ -1,0 +1,17 @@
+nodeproxy:
+  image: node
+  working_dir: /usr/app
+  volumes:
+    - .:/usr/app
+  ports:
+    - 8800:8800
+  command: node index.js
+
+dirbuster:
+ image: hypnza/dirbuster
+ volumes:
+   - ./dirbusterlog:/dirbusterlog
+ entrypoint: java -jar DirBuster-0.12.jar -H -u http://172.17.0.2:8800/ -r /dirbusterlog/log.log
+
+
+# run with `docker-compose run --rm --entrypoint bash nodeserver`; inside the container run `npm install; node index.js`
