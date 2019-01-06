@@ -225,7 +225,7 @@ And here they are deobfuscated:
         h = {   AT: "0",
                 TA: "1",
                 GC: "2",
-                CG: "3" }         
+                CG: "3" }
         */
 
         const pairsOfLetters = e.match(/..?/g); // Now pairsOfLetters = [[AT], [AT], [TA], ... ]
@@ -251,7 +251,7 @@ And here they are deobfuscated:
         };
 
         const minSize = b.getSize(); // It is 15
-        if (e.length < minSize) return {     
+        if (e.length < minSize) return {
             error: "invalid input length"
         };
 
@@ -294,10 +294,10 @@ And here they are deobfuscated:
                 // so it contains a list of properties.
 
                 return Object.assign({}, a, {
-                    [o]: s  
+                    [o]: s
                 })
         }, initialObject)
-    },     
+    },
 
 ```
 
@@ -425,11 +425,11 @@ Which means the symbols would be reduced to: `D E Fsh G A B Csh`, so 7 symbols.
 Now I've heard there was a secret chord
      G                      Em
 That David played, and it pleased the Lord
-    C                D                   G    D                
+    C                D                   G    D
 But you don't really care for music, do you?
    G                  C           D
 It goes like this the fourth, the fifth
-    Em              C      
+    Em              C
 The minor fall, the major lift
     D               B7          Em
 The baffled king composing Hallelujah
