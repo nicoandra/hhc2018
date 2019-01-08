@@ -184,10 +184,11 @@ dig @erohetfanu.com 7365727665722e637274.6B696C6C737769746368.erohetfanu.com TXT
 
 So it seems the binary version of `66667272727869657268667865666B73` is the key used to decrypt the message above:
 
+
+66667272727869657268667865666B73 = ffrrrxierhfxefks
 ```
 (SOME KEY) encrypted with PublicKey: => 
 3cf903522e1a3966805b50e7f7dd51dc7969c73cfb1663a75a56ebf4aa4a1849d1949005437dc44b8464dca05680d531b7a971672d87b24b7a6d672d1d811e6c34f42b2f8d7f2b43aab698b537d2df2f401c2a09fbe24c5833d2c5861139c4b4d3147abb55e671d0cac709d1cfe86860b6417bf019789950d0bf8d83218a56e69309a2bb17dcede7abfffd065ee0491b379be44029ca4321e60407d44e6e381691dae5e551cb2354727ac257d977722188a946c75a295e714b668109d75c00100b94861678ea16f8b79b756e45776d29268af1720bc49995217d814ffd1e4b6edce9ee57976f9ab398f9a8479cf911d7d47681a77152563906a2c29c6d12f971
-
 
 
 3cf903522e1a3966805b50e7f7dd51dc7969c73cfb1663a75a56ebf4aa4a1849d1949005437dc44b8464dca05680d531b7a971672d87b24b7a6d672d1d811e6c34f42b2f8d7f2b43aab698b537d2df2f401c2a09fbe24c5833d2c5861139c4b4d3147abb55e671d0cac709d1cfe86860b6417bf019789950d0bf8d83218a56e69309a2bb17dcede7abfffd065ee0491b379be44029ca4321e60407d44e6e381691dae5e551cb2354727ac257d977722188a946c75a295e714b668109d75c00100b94861678ea16f8b79b756e45776d29268af1720bc49995217d814ffd1e4b6edce9ee57976f9ab398f9a8479cf911d7d47681a77152563906a2c29c6d12f971
@@ -198,3 +199,23 @@ decrypted with PrivateKey=66667272727869657268667865666B73 =>
 ```
 
 
+12. The encryption type is RSA:
+```
+
+$pub_key = [System.Convert]::FromBase64String($(get_over_dns("7365727665722E637274") ) )
+
+$cert = New-Object -TypeName System.Security.Cryptography.X509Certificates.X509Certificate2
+$cert.import($pub_key);
+echo $cert.GetType();
+echo $cert.PublicKey.GetType();
+echo $cert.PublicKey.Key.GetType();
+
+
+PS Z:\> .\decrypter.ps1
+
+IsPublic IsSerial Name                                     BaseType
+-------- -------- ----                                     --------
+True     True     X509Certificate2                         System.Security.Cryptography.X509Certificates.X509Certificate
+True     False    PublicKey                                System.Object
+True     False    RSACryptoServiceProvider                 System.Security.Cryptography.RSA
+```
