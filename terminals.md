@@ -276,7 +276,8 @@ Congratulations!
 * Pepper Minstix webmail hack terminal
 ```bash
   Submit the compromised webmail username to
-  runtoanswer to complete this challenge.```
+  runtoanswer to complete this challenge.
+```
 
   (WIP)
 
@@ -305,7 +306,9 @@ module.exports = {
 };
 ```
 7.`./runtoanswer`, enter `twinkletwinkletwinkle`
+
 8.Read the nice poem:
+
 ```bash
 This ain't "I told you so" time, but it's true:
 I shake my head at the goofs we go through.
@@ -491,8 +494,3 @@ Passwords formed with season-year are on the hackers' list.
 Maybe we should look at guidance published by the NIST?
 Congratulations!
 ```
-
-
-# HoHoHo Daddy TODO
-
-# Elf Terminal (Alabaster Snowball) TODO
