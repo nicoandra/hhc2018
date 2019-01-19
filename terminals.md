@@ -105,8 +105,6 @@ Press Enter to continue...:
 ```
 
 
-
-
 # Curl expert
 1. It needs to be an HTTP2 request (so `CURL -X POST 127.0.0.1:8080 --http2`)
 > `listen                  8080 http2`
@@ -161,20 +159,20 @@ elf@657c12ef9fab:~$ curl -X POST 127.0.0.1:8080 -v --http2-prior-knowledge
 
 
 # GDB Challenge
-1-List, note you have gdb available.
-2-Ran gdb
-3-Listed functions with (WIP)
+1. List, note you have gdb available.
+2. Ran gdb
+3. Listed functions with (WIP)
 
-
-* Tangle coalbox:
+# Tangle coalbox:
 ```bash
  Tangle Coalbox, ER Investigator
   Find the first name of the elf of whom a love poem
   was written.  Complete this challenge by submitting
-  that name to runtoanswer.```
-1.Looking around I've noticed this folder: /home/elf/.secrets/her
-2. There's a text file which contains:
+  that name to runtoanswer.
+```
 
+1. Looking around I've noticed this folder: /home/elf/.secrets/her
+2. There's a text file which contains:
 
 ```bash
 elf@d9378db2c95b:~/.secrets/her$ cat poem.txt
@@ -219,7 +217,6 @@ Up and up climbed team and humor, Morcel being so adored,
 3.Looking around I've noticed there is a `.viminfo` file, which contains:
 ```bash
 
-
 # hlsearch on (H) or off (h):
 ~h
 # Last Substitute Search Pattern:
@@ -248,7 +245,6 @@ $NEVERMORE
 
 Who was the poem written about? Elinore
 
-
 WWNXXK00OOkkxddoolllcc::;;;,,,'''.............
 WWNXXK00OOkkxddoolllcc::;;;,,,'''.............
 WWNXXK00OOkkxddoolllcc::;;;,,,'''.............
@@ -273,7 +269,6 @@ Thank you for giving this challenge your best.
 Congratulations!
 ```
 
-
 # Pepper Minstix webmail hack terminal
 ```bash
   Submit the compromised webmail username to
@@ -282,11 +277,8 @@ Congratulations!
 
   (WIP)
 
-# Python escape terminal
-1. Read
 
-
-# Coalbox Dev Ops Failure terminal
+# Coalbox Dev Ops Fail terminal
 1. Find Sparkle's password, then run the runtoanswer tool
 
 2.`git log` shows the following entry, among others:
@@ -313,7 +305,7 @@ module.exports = {
 
 7.`./runtoanswer`, enter `twinkletwinkletwinkle`
 
-8.Read the nice poem:
+8. Read the nice poem:
 
 ```bash
 This ain't "I told you so" time, but it's true:
@@ -344,12 +336,12 @@ elf         42  0.0  0.0  36636  2740 pts/0    R+   20:38   0:00 ps aux
 elf         43  0.0  0.0   6420   916 pts/0    S+   20:38   0:00 more
 ```
 
-2.Tried logged in as user `report-upload`:
+2. Tried logged in as user `report-upload`:
 `smbclient -U report-upload //localhost/report-upload/`
 
-3.When asked for a password, entered `directreindeerflatterystable`
+3. When asked for a password, entered `directreindeerflatterystable`
 
-4.Got access to Samba share. Then run `put report.txt report.txt`. Seemed to work:
+4. Got access to Samba share. Then run `put report.txt report.txt`. Seemed to work:
 ```bash
 smb: \> put report.txt report.txt
 putting file report.txt as \report.txt (250.5 kb/s) (average 250.5 kb/s)
@@ -388,7 +380,7 @@ Building separate accounts for each elf in the lot.
 ```
 
 
-# Exit Python terminal
+# Python Escape from LA terminal
 
 ```bash
 >>> os = eval('__im'+'port__("os")')
