@@ -281,7 +281,7 @@ Congratulations!
 # Coalbox Dev Ops Fail terminal
 1. Find Sparkle's password, then run the runtoanswer tool
 
-2.`git log` shows the following entry, among others:
+2. `git log` shows the following entry, among others:
 ```bash
 commit 60a2ffea7520ee980a5fc60177ff4d0633f2516b
 Author: Sparkle Redberry <sredberry@kringlecon.com>
@@ -291,9 +291,9 @@ Date:   Thu Nov 8 21:11:03 2018 -0500
 ```
 3. Go to `~/kcconfmgmt/server/config` to find `config.js.def`
 
-4.`git log config.js.def` shows only one entry, checking out the previous version should do the trick. So check out `b2376f4a93ca1889ba7d947c2d14be9a5d138802` and see.
+4. `git log config.js.def` shows only one entry, checking out the previous version should do the trick. So check out `b2376f4a93ca1889ba7d947c2d14be9a5d138802` and see.
 
-5.` git checkout b2376f4a93ca1889ba7d947c2d14be9a5d138802`
+5. `git checkout b2376f4a93ca1889ba7d947c2d14be9a5d138802`
 
 6. The file `server/config/config.js` contains:
 ```javascript
@@ -303,7 +303,7 @@ module.exports = {
 };
 ```
 
-7.`./runtoanswer`, enter `twinkletwinkletwinkle`
+7. `./runtoanswer`, enter `twinkletwinkletwinkle`
 
 8. Read the nice poem:
 
