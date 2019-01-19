@@ -3,7 +3,7 @@
 * Exit vi (done):
 type `:q` and you're done.
 
-* Minty Candycane Employee onboard (WIP)
+# Minty Candycane Employee onboard (WIP)
 1. First enter your information, and you'll see how the information is saved in a SQLite DB.
 2. Use the "Test system" option and enter an IP. You'll notice it will ping.
 3. Try to inject commands, so I've entered `127.0.0.1; ls ; ` and I've got this output:
@@ -13,7 +13,7 @@ Enter address of server: 127.0.0.1 ; ls -lah ;
 PING 127.0.0.1 (127.0.0.1) 56(84) bytes of data.
 64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.036 ms
 64 bytes from 127.0.0.1: icmp_seq=2 ttl=64 time=0.043 ms
-64 bytes from 127.0.0.1: icmp_seq=3 ttl=64 time=0.043 ms
+64 bytes from 127.0.0.1: icmp_seq=3 ttl=64 time=0.043 msFtang
 
 --- 127.0.0.1 ping statistics ---
 3 packets transmitted, 3 received, 0% packet loss, time 2048ms
@@ -58,7 +58,8 @@ CREATE TABLE onboard (
 );
 sqlite> select * from onboard where fname like 'Chan' OR lname LIKE 'Chan';
 84|Scott|Chan|48 Colorado Way||Los Angeles|90067|4017533509|scottmchan90067@gmail.com
-sqlite>```
+sqlite>
+```
 
 5. The last step would be to run `runtoanswer`
 
@@ -68,11 +69,7 @@ Enter address of server: 1.1.1.1; runtoanswer
 connect: Network is unreachable
 Loading, please wait......
 
-
-
 Enter Mr. Chan's first name: Scott
-
-
 
     .;looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooool:'
   'ooooooooooookOOooooxOOdodOOOOOOOdoxOOdoooooOOkoooooooxO000Okdooooooooooooo;
@@ -163,7 +160,7 @@ elf@657c12ef9fab:~$ curl -X POST 127.0.0.1:8080 -v --http2-prior-knowledge
 2. Ran gdb
 3. Listed functions with (WIP)
 
-# Tangle coalbox:
+# Tangle coalbox Lethal ForensicELFication:
 ```bash
  Tangle Coalbox, ER Investigator
   Find the first name of the elf of whom a love poem
@@ -214,7 +211,7 @@ Up and up climbed team and humor, Morcel being so adored,
 -Morcel Nougat
 ```
 
-3.Looking around I've noticed there is a `.viminfo` file, which contains:
+3. Looking around I've noticed there is a `.viminfo` file, which contains:
 ```bash
 
 # hlsearch on (H) or off (h):
@@ -240,7 +237,7 @@ $NEVERMORE
 |2,0,1536606833,,"s/God/fates/gc"
 ```
 
-4.The name seems to be Elinore.
+4. The name seems to be Elinore.
 ```bash
 
 Who was the poem written about? Elinore
@@ -433,7 +430,7 @@ You escaped! Congratulations!
 ```
 
 # Yule Log Analysis
-1.`ls` to find out the files in the current dir; then `python evtx_dump.py ho-ho-no.evtx > log.xml`
+1. `ls` to find out the files in the current dir; then `python evtx_dump.py ho-ho-no.evtx > log.xml`
 2. See the different events: `cat log.xml | grep EventID | sort | uniq -c | sort -rn` :
 ```bash
 elf@64476099810b:~$ cat log.xml | grep EventID | sort | uniq -c | sort -rn
@@ -476,6 +473,7 @@ elf@64476099810b:~$ cat log.xml | grep EventID | sort | uniq -c | sort -rn
 5059: Key migration operation
 
 3. The events `4738`, `4724` seem to be interesting, an account was changed and a password change attempts was issued. What does this event say?
+
 4. The events `4624` and `4625` are interesting too. Run this command to see what happened with some events:
 ```bash
 grep -E "4625|4624" log.xml -A 20 | grep -E "EventID|TargetUserName"  | grep -v HealthMailbox | grep -E "462|Data"
@@ -483,6 +481,7 @@ grep -E "4625|4624" log.xml -A 20 | grep -E "EventID|TargetUserName"  | grep -v 
 
 5. So I'll look for many `4625` followed by a `4624`; which points to:
 `<Data Name="TargetUserName">minty.candycane</Data>`
+
 6. Try `minty.candycane` as an answer:
 
 ```bash
