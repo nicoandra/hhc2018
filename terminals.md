@@ -107,7 +107,7 @@ Press Enter to continue...:
 
 
 
-* Curl expert
+# Curl expert
 1. It needs to be an HTTP2 request (so `CURL -X POST 127.0.0.1:8080 --http2`)
 > `listen                  8080 http2`
 
@@ -146,7 +146,8 @@ elf@657c12ef9fab:~$ curl -X POST 127.0.0.1:8080 -v --http2-prior-knowledge
 
 
  </body>
-</html>```
+</html>
+```
 
 4. The command to run would be:
 `curl -X POST 127.0.0.1:8080 -v --http2-prior-knowledge -d"status=on"`
@@ -159,7 +160,7 @@ elf@657c12ef9fab:~$ curl -X POST 127.0.0.1:8080 -v --http2-prior-knowledge
 ```
 
 
-* GDB Challenge
+# GDB Challenge
 1-List, note you have gdb available.
 2-Ran gdb
 3-Listed functions with (WIP)
@@ -273,7 +274,7 @@ Congratulations!
 ```
 
 
-* Pepper Minstix webmail hack terminal
+# Pepper Minstix webmail hack terminal
 ```bash
   Submit the compromised webmail username to
   runtoanswer to complete this challenge.
@@ -281,12 +282,13 @@ Congratulations!
 
   (WIP)
 
-* Python escape terminal
+# Python escape terminal
 1. Read
 
 
-* Coalbox Dev Ops Failure terminal
+# Coalbox Dev Ops Failure terminal
 1. Find Sparkle's password, then run the runtoanswer tool
+
 2.`git log` shows the following entry, among others:
 ```bash
 commit 60a2ffea7520ee980a5fc60177ff4d0633f2516b
@@ -295,9 +297,12 @@ Date:   Thu Nov 8 21:11:03 2018 -0500
 
     Per @tcoalbox admonishment, removed username/password from config.js, default settings in config.js.def need to be updated before use
 ```
-3.Go to `~/kcconfmgmt/server/config` to find `config.js.def`
+3. Go to `~/kcconfmgmt/server/config` to find `config.js.def`
+
 4.`git log config.js.def` shows only one entry, checking out the previous version should do the trick. So check out `b2376f4a93ca1889ba7d947c2d14be9a5d138802` and see.
+
 5.` git checkout b2376f4a93ca1889ba7d947c2d14be9a5d138802`
+
 6. The file `server/config/config.js` contains:
 ```javascript
 // Database URL
@@ -305,6 +310,7 @@ module.exports = {
     'url' : 'mongodb://sredberry:twinkletwinkletwinkle@127.0.0.1:27017/node-api'
 };
 ```
+
 7.`./runtoanswer`, enter `twinkletwinkletwinkle`
 
 8.Read the nice poem:
