@@ -101,7 +101,8 @@ Enter Mr. Chan's first name: Scott
 Congratulations!
 
 onboard.db: SQLite 3.x database
-Press Enter to continue...: ```
+Press Enter to continue...:
+```
 
 
 
