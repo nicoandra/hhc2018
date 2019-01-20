@@ -159,9 +159,15 @@ elf@657c12ef9fab:~$ curl -X POST 127.0.0.1:8080 -v --http2-prior-knowledge
 
 
 * GDB Challenge
-1-List, note you have gdb available.
-2-Ran gdb
-3-Listed functions with (WIP)
+1. List, note you have gdb available.
+2. Ran gdb
+3. Listed functions with `objdump -t sleighbell-lotto | grep "F"`
+4. gdb sle
+5. help breakpoints
+6. break main
+8. run
+9. jump winnerwinner
+
 
 
 * Tangle coalbox:
