@@ -462,22 +462,22 @@ elf@64476099810b:~$ cat log.xml | grep EventID | sort | uniq -c | sort -rn
 
 2. What does each EventID mean?
 
-4608: Windows is starting up
-4624: An account was successfully logged on
-4625: An account failed to log on
-4647: User initiated logoff
-4688: A new process has been created
-4724: An attempt was made to reset an accounts password
-4738: A user account was changed
-4768: A Kerberos authentication ticket (TGT) was requested
-4769: A Kerberos service ticket was requested
-4776: The domain controller attempted to validate the credentials for an account
-4826: Boot Configuration Data loaded
-4902: The Per-user audit policy table was created
-4904: An attempt was made to register a security event source
-5024: The Windows Firewall Service has started successfully
-5033: The Windows Firewall Driver has started successfully
-5059: Key migration operation
+- 4608: Windows is starting up
+- 4624: An account was successfully logged on
+- 4625: An account failed to log on
+- 4647: User initiated logoff
+- 4688: A new process has been created
+- 4724: An attempt was made to reset an accounts password
+- 4738: A user account was changed
+- 4768: A Kerberos authentication ticket (TGT) was requested
+- 4769: A Kerberos service ticket was requested
+- 4776: The domain controller attempted to validate the credentials for an account
+- 4826: Boot Configuration Data loaded
+- 4902: The Per-user audit policy table was created
+- 4904: An attempt was made to register a security event source
+- 5024: The Windows Firewall Service has started successfully
+- 5033: The Windows Firewall Driver has started successfully
+- 5059: Key migration operation
 
 3. The events `4738`, `4724` seem to be interesting, an account was changed and a password change attempts was issued. What does this event say?
 
