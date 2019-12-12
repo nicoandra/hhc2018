@@ -1,6 +1,0 @@
-[submodule "scripts/trufflehog"]
-	path = scripts/trufflehog
-	url = https://github.com/dxa4481/truffleHog
-[submodule "scripts/malware_analysis/power_dump"]
-	path = scripts/malware_analysis/power_dump
-	url = https://github.com/chrisjd20/power_dump
