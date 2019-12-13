@@ -1,1 +1,45 @@
-* Torso and Legs have 3 extra images, all blank
+
+
+
+1- Windows Log Analysis: Evaluate Attack Outcome
+
+We're seeing attacks against the Elf U domain! Using the event log data, identify the user account that the attacker compromised using a password spray attack. Bushy Evergreen is hanging out in the train station and may be able to help you out.
+
+
+
+1-Download the event logs from here: https://downloads.elfu.org/Security.evtx.zip
+*-Unzip the file in /tmp
+2-Clone this repo: https://github.com/0xrawsec/golang-evtx
+3-Get into the folder and run 
+
+```
+docker build -t monaxgt/evtxdump .
+docker run -it --rm -v /tmp:/app/data monaxgt/evtxdump /app/data/Security.evtx
+```
+
+Once you've had the logs, see what this means: 4624: https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4624
+
+
+In a node shell:
+````
+const fs=require('fs');
+const evs = fs.readFileSync('./events.txt').toString().split("\n").filter(s => s.length).map((s)=> { return JSON.parse(s)});
+
+````
+
+
+We are looking for a row where the eventId is 4624 (successful login) that matches the pattern of login attempts
+
+```
+evs.filter((r) => { return r.Event && r.Event.EventData && r.Event.EventData.AuthenticationPackageName !== undefined}).map((r) => { return {eventId: r.Event.System.EventID, username: r.Event.EventData.TargetUserName}}).filter((r) => r.username !== 'DC1$').filter((r) => r.eventId==4624)
+[
+  { eventId: '4624', username: 'pminstix' },
+  { eventId: '4624', username: 'pminstix' },
+  { eventId: '4624', username: 'supatree' },
+  { eventId: '4624', username: 'supatree' }
+]
+```
+
+
+
+Tried pminstix but did not work. So supatree. It worked. There must be a way to spot Supatree right away.
